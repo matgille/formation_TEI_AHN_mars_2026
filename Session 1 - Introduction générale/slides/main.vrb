@@ -1,0 +1,17 @@
+\frametitle{Fine-tune the validation with Schematron}
+\begin{minted}{xml}
+<!--The following element can be a child of any elementSpec node-->
+<constraintSpec ident="checks_pb"
+          xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+          xmlns:sqf="http://www.schematron-quickfix.com/validator/process"
+          xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+          scheme="isoschematron">
+          <constraint>
+            <sch:rule context="tei:pb">
+              <sch:assert test="matches(@n, '\d+[vr]')">Something is wrong with the foliation of
+                this page. Have you forgotten the page side indication
+                ?</sch:assert>
+            </sch:rule>
+          </constraint>
+        </constraintSpec>
+\end{minted}

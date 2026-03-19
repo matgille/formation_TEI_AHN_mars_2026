@@ -11,6 +11,10 @@
 *.cb
 *.cb2
 .*.lb
+*.pyg
+*.snm
+*.vrb
+*.nav
 
 ## Intermediate documents:
 *.dvi
