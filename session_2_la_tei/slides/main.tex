@@ -28,8 +28,8 @@
 \setminted{
   bgcolor=schBg,
   frame=single,
-  framesep=10mm,
-  linenos=true,
+  framesep=3mm,
+  linenos=False,
   breaklines=true,
   fontsize=\small,
 }
@@ -252,7 +252,9 @@ La page contient:
 
 \begin{frame}{Structure textuelle}
 \begin{itemize}
-\item
+\item Les divisions sont marquées par \texttt{div} ou \texttt{div1, div2, div3}. Le choix entre les deux est obligatoire !
+\item Les paragraphes de la prose, par \texttt{p}
+\item Les sections moins claires sémantiquement peuvent être indiquées par \texttt{ab} (anonymous block)
 \end{itemize}
 \end{frame}
 
@@ -286,10 +288,24 @@ La page contient:
 
 \section{Application: encoder des vers et du théâtre}
 \subsection{Le vers}
-\begin{frame}{Les formes versifiées}
+\begin{frame}[containsverbatim]{Les formes versifiées}
 \begin{itemize}
 \item Le module de la TEI est: \href{Verse}{https://tei-c.org/release/doc/tei-p5-doc/en/html/VE.html}
-\item les éléments fondamentaux
+\item les éléments fondamentaux sont le vers (\texttt{l} pour \textit{line}), le groupe de vers (\texttt{lg} pour \textit{LineGroup})
+\item Vous pouvez représenter une unité textuelle (poème) par comme un \texttt{lg} ou plus classiquement une division. 
+\item L'hémistiche ou le pied peuvent être indiqués à l'aide de l'élément \texttt{seg} qui devra être précisé par un attribut \texttt{type}
+\item Vous pouvez décrire la rime avec l'attribut \texttt{rhyme}, et la structure métrique avec \texttt{met}:
+
+\begin{minted}[breaklines,numbersep=2mm]{xml}
+<l>
+ <seg type="foot" met="+--">Arma vi</seg>
+ <seg met="+--">rumque ca</seg>
+ <seg met="++">no Tro</seg>
+ <seg met="++">iae qui </seg>
+ <seg met="+--">primus ab</seg>
+ <seg met="++"> oris</seg>
+</l>
+\end{minted}
 \end{itemize}
 \end{frame}
 
@@ -309,17 +325,18 @@ La page contient:
 \begin{frame}{Le théâtre}
 \begin{itemize}
 \item Le module de la TEI est: \href{Performance texts}{https://tei-c.org/release/doc/tei-p5-doc/en/html/DR.html}
-\item les éléments fondamentaux
+\item les éléments fondamentaux sont la division structurelle (similaire à \textit{supra}), les interventions des personnages (\texttt{sp})
+\item Les didascalies sont encodées avec \texttt{stage}. Les mouvements des personnages, avec \texttt{move}
+\item La liste des personnages se décrit à l'aide de \texttt{castList} et de \texttt{castItem}, le lieu de l'action avec \texttt{set}.
 \end{itemize}
 \end{frame}
 
 \begin{frame}{Encoder un fragment d'\oe uvre dramatique}
 \begin{itemize}
-\item Encodez la scène 
+\item Encodez la scène finale de l'\textit{Avare} (\texttt{session\_2\_la\_tei/exercices/avare\_a5\_sc6.txt})
 \item Utilisez la spécification \texttt{TEI Drama}
 \item Commencez par renseigner les métadonnées minimales
 \item Encodez la structure du texte en considérant qu'il fait partie d'une \oe uvre complète
-\item Renseignez le type de strophe et de vers à l'aide d'attributs
 \end{itemize}
 \end{frame}
 
