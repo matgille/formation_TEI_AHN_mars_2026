@@ -1,5 +1,0 @@
-\begin{Verbatim}[commandchars=\\\{\}]
-\PYG{k}{for} \PYG{n}{rdg} \PYG{o+ow}{in} \PYG{n}{apps}\PYG{p}{:}
-    \PYG{k}{if} \PYG{n}{rdg}\PYG{o}{.}\PYG{n}{is\PYGZus{}empty}\PYG{p}{()} \PYG{o+ow}{and} \PYG{n}{following\PYGZus{}rdg}\PYG{o}{.}\PYG{n}{is\PYGZus{}empty}\PYG{p}{():}
-            \PYG{n}{create\PYGZus{}node}\PYG{p}{(}\PYG{n}{witEnd}\PYG{p}{)}
-\end{Verbatim}
