@@ -114,7 +114,7 @@ doi=true,backend=biber,maxbibnames=9, maxcitenames=4]{biblatex}
 
 \date[24 mars 2026]{24 mars 2026}
 \author[Matthias \textsc{Gille Levenson}]{\\~\\ Matthias \textsc{Gille Levenson}\\   {\scriptsize Université Versailles Saint Quentin (UVSQ) \& École Normale Supérieure de Lyon, France}\\ {\tiny matthias [dot] gille [-] levenson [at] ens-lyon [dot] fr}\vspace{-1cm}}
-\title[Le XML]{Session 1: Introduction générale au XML et à la TEI\\ {\small Atelier Humanités Numériques \\ Lyon}}
+\title[Les schémas]{Session 3: Les schémas\\ {\small Atelier Humanités Numériques \\ Lyon}}
 %\titlegraphic{\hspace{0.5cm}\includegraphics[scale=0.21]{/home/mgl/Bureau/Travail/admin/logos/ensl.png}\hspace{0.5cm}\includegraphics[scale=0.23]{/home/mgl/Bureau/Travail/admin/logos/ciham.pdf}\hspace{0.5cm}}
 \usepackage[justification=centering]{caption}
 \begin{document}
@@ -123,98 +123,97 @@ doi=true,backend=biber,maxbibnames=9, maxcitenames=4]{biblatex}
 \section{Introduction}
 
 
-\section{Schemata}
-\subsection{Interests of using schemata}
-\begin{frame}{What is the use of a schema?}
+\section{Les schémas}
+\subsection{Avantages de l'utilisation des schémas}
+\begin{frame}{À quoi sert un schéma ?}
 \begin{itemize}
-\item A schema checks if the data is correctly formatted.
-\item A schema makes assumptions about what is legal and what is illegal in an XML data structure
-\item Applied to some text encoding, a schema is a model of the \enquote{text}, that is, a \textbf{formal representation} of the text.
-\item From a pragmatic point of view, it helps harmonizing your encoding and is an \textbf{important step towards interoperability}
+\item Un schéma vérifie si les données sont correctement formatées.
+\item Un schéma définit des règles concernant ce qui est autorisé et ce qui ne l'est pas dans une structure de données XML
+\item Appliqué à un codage de texte, un schéma est un modèle du \enquote{texte}, c'est-à-dire une \textbf{représentation formelle} du texte.
+\item D'un point de vue pratique, cela permet d'harmoniser votre encodage et constitue une \textbf{étape importante vers l'interopérabilité}
 \end{itemize}
 \end{frame}
 
 
-\begin{frame}{Integrating the schema in your encoding sessions}
-Some XML editors use the schema as a tool for easing the encoding: 
+\begin{frame}{Intégration du schéma dans vos sessions d'encodage}
+Certains éditeurs XML utilisent le schéma comme outil pour faciliter le codage : 
 \begin{figure}
  \includegraphics[height=.5\textheight]{img/example_tei.png}
- \caption{Oxygen XML Editor allows you to choose between the allowed elements}
+ \caption{L'éditeur XML Oxygen vous permet de choisir parmi les éléments autorisés}
 \end{figure}
 \end{frame}
 
-\begin{frame}{Schemas}
+\begin{frame}{Les schémas}
 \begin{itemize}
-\item A schema is a document that is used to control the quality of some encoding.
-\item The TEI provides \textbf{rules} (the \textit{Guidelines}, human readable), and their \textbf{formalization} (\textit{schemas}, machine readable) to check the validity of a given document
-\item From an abstract point of view, the schema represents the formalization of \textit{your} modelling of a given text or genre.
+\item Un schéma est un document qui sert à contrôler la qualité d'un encodage.
+\item La TEI fournit des \textbf{règles} (les \textit{Guidelines}, lisibles par l'homme) et leur \textbf{formalisation} (\textit{schémas}, lisibles par machine) afin de vérifier la validité d'un document donné
+\item D'un point de vue abstrait, le schéma représente la formalisation de \textit{votre} modélisation d'un texte ou d'un genre donné.
 \end{itemize}
 \end{frame}
 
 
-\begin{frame}{Schemas}
+\begin{frame}{Les schémas}
 \begin{center}
 \begin{figure}
 \includegraphics[height=.75\textheight]{img/validation.png}
-\caption{This fragment is \textit{well-formed}, but it is not \textit{valid} according to the XML-TEI schema. A paragraph \texttt{p} or an anonymous block \texttt{ab} should wrap the lines.}
+\caption{Ce fragment est \textit{bien formé}, mais il n'est pas \textit{valide} selon le schéma XML-TEI. Ces lignes devraient être encadrées par un paragraphe \texttt{p} ou un bloc anonyme \texttt{ab}.}
 \end{figure}
 \end{center}
 \end{frame}
 
 
-\begin{frame}{Schema formats}
+\begin{frame}{Formats de schémas}
 
-There are multiple schema formats. The most important are:
+Il existe plusieurs formats de schéma. Les plus importants sont les suivants :
 \begin{itemize}
-\item Document Type Definition (DTD), already mentionned before
-\item XML schema (XSD format)
-\item Relax NG (RNG) schemas and its compact version (RNC)
-\end{itemize}
-The former is less used nowadays but can prove usefull for creating shortcut elements thanks to \textbf{XML entities} (e.g. for abbreviation encoding)
 
-\begin{center}
-\begin{figure}
-\includegraphics[height=.3\textheight, trim={0 1cm 0 2cm}, clip]{img/entities.png}
-\caption{A possible way to encode abbreviations using XML entities / DTD definitions}
-\end{figure}
-\end{center}
+\item Définition de type de document (DTD)
+\item Schéma XML (format XSD)
+\item Schémas Relax NG (RNG) et leur version compacte (RNC)
+\end{itemize}
 \end{frame}
 
 
-\subsection{Schemas and the TEI I}
-\begin{frame}{TEI subsets}
+\subsection{Les schémas et la TEI I}
+\begin{frame}{Les TEI subsets}
 \begin{center}
 \begin{figure}
 \includegraphics[height=.6\textheight]{img/schemas.png}
 \end{figure}
 \begin{itemize}
-\item There are multiple TEI schemas available.
-\item As a scientific standard, the TEI needs to be adapted to the user’s needs.
+\item Il existe plusieurs schémas TEI.
+\item En tant que norme scientifique, le TEI doit être adapté aux besoins de l'utilisateur.ice
 \end{itemize}
 \end{center}
 \end{frame}
 
 
-\begin{frame}{Why should you create your own TEI customization ?}
+\begin{frame}{Pourquoi devriez-vous créer votre propre personnalisation TEI ?}
 \begin{center}
 \begin{itemize}
-\item Consider the TEI as a tool to model your textual object
-\item You probably won't need all the intellectual tools provided by the TEI Consortium.
-\item As medievalists, you might want to discard the elements belonging to the \enquote{Transcriptions of Speech} section of the TEI (alas!)
-\item Your schema will be the formalization of your way of seeing the text, and you need it to be as specific as possible.
+\item Considérez la TEI comme un outil permettant de modéliser votre objet textuel
+\item Vous n'aurez probablement pas besoin de tous les outils conceptuels fournis par le Consortium TEI.
+\item Si vous êtes médiéviste, vous souhaiterez peut-être écarter les éléments appartenant à la section \enquote{Transcriptions du discours} de la TEI (hélas !)
+\item Votre schéma sera la formalisation de votre façon de voir le texte, et vous devez le rendre aussi précis que possible.
 \end{itemize}
 \end{center}
 \end{frame}
 
 
-\begin{frame}{Two main methods}
+\begin{frame}{Deux méthodes principales}
 \begin{center}
 \begin{itemize}
-\item The inclusion method: start from scratch, add the elements you need
-\item The exclusion method: start from a predefined schema, remove the elements you won't need
-\pause\item  I would recommended to adopt the first approach...
-\pause\item or at least starting from a preset specification that meets some of your interests (we'll see this later).
-\pause\item Mastering the Guidelines is essential to know what is possible for your project.
+
+\item La méthode par inclusion : partez de zéro, ajoutez les éléments dont vous avez besoin
+
+\item La méthode par exclusion : partez d'un schéma prédéfini, supprimez les éléments dont vous n'avez pas besoin
+
+\pause\item  Je vous recommanderais d'adopter la première approche...
+
+\pause\item ou du moins de partir d'une spécification prédéfinie qui répond à certains de vos besoins (nous verrons cela plus tard).
+
+\pause\item Il est essentiel de maîtriser les lignes directrices pour savoir ce qui est possible pour votre projet.
+
 \end{itemize}
 \end{center}
 
@@ -222,31 +221,38 @@ The former is less used nowadays but can prove usefull for creating shortcut ele
 
 
 
-\begin{frame}{Don't reinvent the wheel !}
+\begin{frame}{Ne réinventez pas la roue !}
 \begin{center}
 \begin{figure}
 \includegraphics[width=.4\textwidth]{img/standards.png}
 \caption{\url{https://xkcd.com/927/}}
 \end{figure}
 \begin{itemize}
-\item You have to specify, and adapt the TEI rules to your own project
-\item However, the modelling problems you will face are probably \textit{not} new
-\item Please don't reinvent the wheel ! 
-\item Search for what's been done for similar problems and try the provided solutions !
-\item And (for a start), avoid inventing/creating new elements.
+\item Vous devez définir et adapter les règles TEI à votre propre projet
+
+\item Cependant, les problèmes de modélisation auxquels vous serez confronté ne sont probablement \textit{pas} nouveaux
+
+\item Ne réinventez pas la roue ! 
+
+\item Recherchez ce qui a déjà été fait pour des problèmes similaires et essayez les solutions proposées !
+
+\item Et (pour commencer), évitez d'inventer ou de créer de nouveaux éléments.
 \end{itemize}
 \end{center}
 \end{frame}
 
 
-\subsection{Schemas and the TEI II: ODD's}
+\subsection{Les schémas and la TEI II: l'ODD}
 \begin{frame}{Is that all, folks ?}
 \begin{center}
 \begin{itemize}
-\item Create a specific schema is a good start.
-\pause\item What's missing then ? \pause \textit{Documentation}.
-\pause\item You want now to explain your rules to your supervisor, to your colleagues and to your children. You need to write this \textit{in natural language}.
-\pause\item What could be better than a TEI document to describe another TEI document?
+\item Créer un schéma spécifique est un bon début.
+
+\pause\item Que manque-t-il alors ? \pause \textit{De la documentation}.
+
+\pause\item Vous souhaitez maintenant expliquer vos règles à votre supérieur, à vos collègues et à vos enfants. Vous devez rédiger cela \textit{en langage naturel}.
+
+\pause\item Quoi de mieux qu'un document TEI pour décrire un autre document TEI ?
 \end{itemize}
 \end{center}
 \end{frame}
@@ -260,18 +266,24 @@ The former is less used nowadays but can prove usefull for creating shortcut ele
 
 \begin{frame}{Here comes the ODD}
 \begin{itemize}
-\item ODD stands for \enquote{One Document Does it All}
-\item An ODD is a TEI document that is used to create both the documentation and the schema in a single document.
-\item Important reading: \fullcite{burnard_WhatTEIConformance_2019}
+\item ODD signifie \enquote{One Document Does it All}
+
+\item Un ODD est un document TEI qui sert à créer à la fois la documentation et le schéma dans un seul et même document.
+
+\item Lecture recommandée : \fullcite{burnard_WhatTEIConformance_2019}
 \end{itemize}
 \end{frame}
 
 
-\begin{frame}{One Document to Rule Them All}
-An ODD contains:
+\begin{frame}{Un Document pour les Contrôler Tous}
+Un ODD contient :
+
 \begin{itemize}
-\item the machine-readable elements used to \textit{validate} an edition
-\item the human-readable elements used to \textit{document} it
+
+\item les éléments lisibles par machine utilisés pour \textit{valider} une édition
+
+\item les éléments lisibles par l'homme utilisés pour \textit{documenter} celle-ci
+
 \end{itemize}
 \end{frame}
 
@@ -303,7 +315,8 @@ An ODD contains:
 \end{figure}
            \column{0.40\linewidth}
 \begin{itemize}
-\item The TEI is organized by \textit{thematic} modules
+\item Le TEI est organisé en modules \textit{thématiques} qui correspondent aux chapitres indiqués plus haut
+\item Le module est la formalisation informatique du chapitre.
 \end{itemize}
          \end{columns} 
     \end{frame}
@@ -312,21 +325,26 @@ An ODD contains:
 \begin{frame}{TEI as modules}
 \begin{itemize}
 \item 22 modules
-\item Each module is binded to a list of elements. Deactivate a module and those elements won't be accessible anymore. 
-\item 4 main modules: \texttt{tei}, \texttt{core}, \texttt{header}, and \texttt{textstructure}, almost mandatory
-\item The other module you might want to take a look at are: \texttt{msdescription}, (\texttt{transcr}) and \texttt{textcrit}
+
+\item Chaque module est associé à une liste d'éléments. Si vous désactivez un module, ces éléments ne seront plus accessibles. 
+
+\item 4 modules principaux : \texttt{tei}, \texttt{core}, \texttt{header} et \texttt{textstructure}, pratiquement obligatoires
+
 \end{itemize}
 \end{frame}
 
 
 
-\begin{frame}{An \textsc{Odd} is NOT a schema}
+\begin{frame}{Un \textsc{ODD} n'est PAS un schéma}
 
 \begin{itemize}
-\item It is a \textbf{TEI document} used to produce schemata.
-\item It needs to be \textbf{converted} to a schema (and a documentation when applicable)
-\item The resulting schema (in general, in RNG) is the document you will use to validate your XML documents.
-\item Don't try to validate your files against ODD's !
+\item Il s'agit d'un \textbf{document TEI} utilisé pour générer des schémas.
+
+\item Il doit être \textbf{converti} en schéma (et en documentation, le cas échéant).
+
+\item Le schéma obtenu (généralement au format RNG) est le document que vous utiliserez pour valider vos documents XML.
+
+\item N'essayez pas de valider vos fichiers par rapport aux ODD !
 \end{itemize}
 \end{frame}
 
@@ -335,13 +353,15 @@ An ODD contains:
 
 
 \subsection{ROMA}
-\begin{frame}{Producing ODD's and schemas with ROMA}
+\begin{frame}{Création de fichiers ODD et de schémas avec ROMA}
 
 % Image vers ROMA
 \begin{itemize}
-\item ROMA, maintained by Raffaele Viglianti (lead), Peter Stadler and Bryan Wang.
-\item ROMA is a simple interface for designing ODDs and creating schemas
-\item URL: \url{https://roma.tei-c.org/}
+\item ROMA, géré par Raffaele Viglianti (responsable), Peter Stadler et Bryan Wang.
+
+\item ROMA est une interface simple permettant de concevoir des ODD et de créer des schémas
+
+\item URL : \url{https://roma.tei-c.org/}
 \end{itemize}
 \end{frame}
 
@@ -349,199 +369,213 @@ An ODD contains:
 \begin{frame}{A quick look at our ODD}
 With ROMA, you can easily design your own ODD:
 \begin{itemize}
-\item Include or exclude specific modules
-\item Completely remove elements (they won't be allowed anymore)
-%\item Partially remove elements (they will be allowed in specific contexts only)
-\item Constrain attribute types, or attribute values 
-\item Make some attributes mandatory
+\item Inclure ou exclure des modules spécifiques
+
+\item Supprimer complètement des éléments (ils ne seront plus autorisés)
+
+%\item Supprimer partiellement des éléments (ils ne seront autorisés que dans des contextes spécifiques)
+
+\item Imposer des contraintes sur les types d'attributs ou les valeurs d'attributs
+
+\item Rendre certains attributs obligatoires
+
 \item etc.
 \end{itemize}
 \end{frame}
 
 
-\begin{frame}{Producing ODD's and schemas with ROMA}
+\begin{frame}{Création de fichiers ODD et de schémas avec ROMA}
 
 % Image vers ROMA
 \begin{itemize}
-\item I'm interested in the encoding of a medieval manuscript. How can I create the most adapted ODD with ROMA?
-\item I want to make sur the user uses an attribute \texttt{@n} for each page beginning element (\texttt{pb}). How can I do ?
-\item I want to remove the \texttt{div1}, \texttt{div2}, ..., \texttt{div7} elements, so that divisions are marked up with typed and identified \texttt{div} elements only. 
+\item Je m'intéresse au codage d'un manuscrit médiéval. Comment puis-je créer le fichier ODD le plus adapté avec ROMA ?
+
+\item Je souhaite m'assurer que l'utilisateur utilise l'attribut \texttt{@n} pour chaque élément de début de page (\texttt{pb}). Comment puis-je procéder ?
+
+\item Je souhaite supprimer les éléments \texttt{div1}, \texttt{div2}, ..., \texttt{div7}, afin que les divisions soient balisées uniquement avec des éléments \texttt{div} typés et identifiés. 
 \end{itemize}
 \end{frame}
 
-\begin{frame}{Producing ODD's and schemas with ROMA}
+\begin{frame}{Création de fichiers ODD et de schémas avec ROMA}
 \begin{figure}
  \includegraphics[width=.9\textwidth]{img/roma_main_page.png}
- \caption{ROMA main page: presets}
+ \caption{La page principale de ROMA: les \enquote{presets}}
 \end{figure}
 \end{frame}
 
-\begin{frame}{Producing ODD's and schemas with ROMA}
+\begin{frame}{Création de fichiers ODD et de schémas avec ROMA}
 \begin{figure}
  \includegraphics[width=.9\textwidth]{img/settings_odd.png}
- \caption{Configuring your ODD}
+ \caption{Configurer l'ODD}
 \end{figure}
 \end{frame}
 
-\begin{frame}{Producing ODD's and schemas with ROMA}
+\begin{frame}{Création de fichiers ODD et de schémas avec ROMA}
 \begin{figure}
  \includegraphics[width=.9\textwidth]{img/finding_pb.png}
- \caption{Find the element you want to modify (here, \texttt{pb})}
+ \caption{Recherchez l'élément que vous souhaitez modifier (ici, \texttt{pb})}
 \end{figure}
 \end{frame}
 
-\begin{frame}{Producing ODD's and schemas with ROMA}
+\begin{frame}{Création de fichiers ODD et de schémas avec ROMA}
 \begin{figure}
  \includegraphics[width=.9\textwidth]{img/feature_selection.png}
- \caption{Choose the feature you want to adapt (documentation or attribute)}
+ \caption{Choisissez l'élément que vous souhaitez adapter (documentation ou attribut)}
 \end{figure}
 \end{frame}
 
-\begin{frame}{Producing ODD's and schemas with ROMA}
+\begin{frame}{Création de fichiers ODD et de schémas avec ROMA}
 \begin{figure}
  \includegraphics[width=.9\textwidth]{img/attribute_selection.png}
- \caption{Find the attribute you want to modify}
+ \caption{Recherchez l'attribut que vous souhaitez modifier}
 \end{figure}
 \end{frame}
 
-\begin{frame}{Producing ODD's and schemas with ROMA}
+\begin{frame}{Création de fichiers ODD et de schémas avec ROMA}
 \begin{figure}
  \includegraphics[width=.9\textwidth]{img/changing_attribute_behaviour.png}
- \caption{Change its usage ! It's (almost) automagical !}
+ \caption{Changez la façon de l'utiliser ! C'est (presque) automagique !}
 \end{figure}
 \end{frame}
 
 
-\begin{frame}{The produced ODD}
+\begin{frame}{L'ODD produit}
 \begin{figure}
  \includegraphics[width=.65\textwidth]{img/my_first_ODD.png}
 \end{figure}
-I find this specification too broad. I would remove some modules. Do you want to describe figures? Are you interested in named entities?
+Je trouve cette spécification trop générale. Je supprimerais certains modules. Souhaitez-vous décrire des chiffres ? Vous intéressez-vous aux entités nommées ?
 \end{frame}
 
 
 
-\begin{frame}{Producing ODD's and schemas with ROMA: exporting the ODD}
+\begin{frame}{Création d'ODD et de schémas avec ROMA : exportation de l'ODD}
 
 % Image vers ROMA
 \begin{itemize}
-\item Multiple output formats. 
-\item The most important is ODD for scientific purposes.
-\item You'll need RNC/RNG for validation purposes. 
-\item You won't be able to retrieve your ODD from an RNG or any other schema file.
-\item Oxygen can also produce the schema from the ODD's. 
+\item Plusieurs formats de sortie. 
+
+\item Le plus important est l'ODD pour les applications scientifiques.
+
+\item Vous aurez besoin de RNC/RNG à des fins de validation. 
+
+\item Vous ne pourrez pas récupérer votre ODD à partir d'un RNG ou de tout autre fichier de schéma.
+
+\item Oxygen peut également générer le schéma à partir des ODD.
 \end{itemize}
 \end{frame}
 
 
 
-\begin{frame}{Making a reference to the schema in your TEI file}
+\begin{frame}{Faire référence au schéma dans votre fichier TEI}
 \begin{figure}
  \includegraphics[width=1\textwidth, trim={0 0 0 .2cm}, clip]{img/linking.png}
- \caption{Before the root node, the reference to a DTD (in blue, second line) and to my ODD derived schema (in violet, third line).}
+ \caption{Avant le n\oe ud racine, la référence à mon schéma dérivé de l'ODD (en violet, troisième ligne).}
 \end{figure}
 \end{frame}
 
 
 
 
-\begin{frame}{A quick look at our ODD}
-Let's sum up. You can:
+\begin{frame}{Un aperçu de notre ODD}
+Résumons. Vous pouvez:
 \begin{itemize}
-\item Completely remove elements (they won't be allowed anymore)
-\item Partially remove elements (they will be allowed in specific contexts only)
-\item Constrain attribute types, or attribute values; make some attributes mandatory
-\end{itemize}
-How does it work ? 
-\end{frame}
+\item Supprimer complètement certains éléments (ils ne seront plus autorisés)
 
-\begin{frame}[fragile]{Activate a module and include selected elements}
-\begin{minted}{xml}
-<moduleRef key="textcrit" include="listWit witness witEnd witStart app rdg"/>
-\end{minted}
-\begin{itemize}
-\item The \texttt{include} attribute means a rebuilding of the module from scratch: absent elements won't be allowed in your encoding
-\item Note here the choice not to include the \texttt{lemma} element, derived from a specific editorial methodology (\enquote{variance}, etc). 
+\item Supprimer partiellement certains éléments (ils ne seront autorisés que dans des contextes spécifiques)
+
+\item Restreindre les types d'attributs ou leurs valeurs ; rendre certains attributs obligatoires
 \end{itemize}
 \end{frame}
 
-\begin{frame}[fragile]{Make attributes mandatory}
-\begin{minted}{xml}
-<elementSpec ident="pb" mode="change">
-  <attList>
-     <attDef ident="n" mode="change" usage="req"/>
-  </attList>
-</elementSpec>
-\end{minted}
-\end{frame}
+%\begin{frame}[fragile]{Activate a module and include selected elements}
+%\begin{minted}{xml}
+%<moduleRef key="textcrit" include="listWit witness witEnd witStart app rdg"/>
+%\end{minted}
+%\begin{itemize}
+%\item The \texttt{include} attribute means a rebuilding of the module from scratch: absent elements won't be allowed in your encoding
+%\item Note here the choice not to include the \texttt{lemma} element, derived from a specific editorial methodology (\enquote{variance}, etc). 
+%\end{itemize}
+%\end{frame}
 
-\begin{frame}[fragile]{Remove attributes at element level}
-\begin{minted}{xml}
-<elementSpec ident="material" mode="change" module="msdecription">
-    <attList>
-        <attDef ident="function" mode="delete"/>
-        <attDef ident="target" mode="delete"/>
-        <attDef ident="resp" mode="delete"/>
-        <attDef ident="ref" mode="delete"/>
-    </attList>
-</elementSpec>
-\end{minted}
-\end{frame}
+%\begin{frame}[fragile]{Make attributes mandatory}
+%\begin{minted}{xml}
+%<elementSpec ident="pb" mode="change">
+%  <attList>
+%     <attDef ident="n" mode="change" usage="req"/>
+%  </attList>
+%</elementSpec>
+%\end{minted}
+%\end{frame}
 
-\begin{frame}[fragile]{Constrain attribute values}
-\begin{minted}[fontsize={\fontsize{9.5}{10.5}\selectfont}]{xml}
-<elementSpec ident="material" mode="change" module="msdecription">
-    <attList>
-        <attDef ident="type" mode="replace" usage="req">
-            <valList mode="add" type="closed">
-                <valItem ident="parchment">
-                    <desc>The copy medium is parchment.</desc>
-                </valItem>
-                <valItem ident="paper">
-                    <desc>The copy medium is paper.</desc>
-                </valItem>
-                <valItem ident="mixt">
-                    <desc>The copy medium alternates between paper and parchment.</desc>
-                </valItem>
-            </valList>
-        </attDef>
-    </attList>
-</elementSpec>
-\end{minted}
-\end{frame}
+%\begin{frame}[fragile]{Remove attributes at element level}
+%\begin{minted}{xml}
+%<elementSpec ident="material" mode="change" module="msdecription">
+%    <attList>
+%        <attDef ident="function" mode="delete"/>
+%        <attDef ident="target" mode="delete"/>
+%        <attDef ident="resp" mode="delete"/>
+%        <attDef ident="ref" mode="delete"/>
+%    </attList>
+%</elementSpec>
+%\end{minted}
+%\end{frame}
+
+%\begin{frame}[fragile]{Constrain attribute values}
+%\begin{minted}[fontsize={\fontsize{9.5}{10.5}\selectfont}]{xml}
+%<elementSpec ident="material" mode="change" module="msdecription">
+%    <attList>
+%        <attDef ident="type" mode="replace" usage="req">
+%            <valList mode="add" type="closed">
+%                <valItem ident="parchment">
+%                    <desc>The copy medium is parchment.</desc>
+%                </valItem>
+%                <valItem ident="paper">
+%                    <desc>The copy medium is paper.</desc>
+%                </valItem>
+%                <valItem ident="mixt">
+%                    <desc>The copy medium alternates between paper and parchment.</desc>
+%                </valItem>
+%            </valList>
+%        </attDef>
+%    </attList>
+%</elementSpec>
+%\end{minted}
+%\end{frame}
 
 
 
-\begin{frame}{The other side of ODD's: natural language documentation}
+\begin{frame}{L'autre facette des ODD : la documentation en langage naturel}
 % Image vers ROMA
 \begin{itemize}
-\item Roma is just the first step to create the machine-readable version of your ODD
-\item As said before, you'll need to create and write the documentation \textit{in natural language}, using the TEI. Example: \href{https://gitlab.huma-num.fr/mgillelevenson/hyperregimiento-de-los-principes/-/blob/master/Dedans/XML/schemas/ODD_transcriptions.xml?ref_type=heads}{here}.
-\item You can use any XML editor to do so.
+\item Roma n'est que la première étape pour créer la version lisible par machine de votre ODD
+
+\item Comme indiqué précédemment, vous devrez créer et rédiger la documentation \textit{en langage naturel}, en utilisant le TEI. Exemple : \href{https://gitlab.huma-num.fr/mgillelevenson/hyperregimiento-de-los-principes/-/blob/master/Dedans/XML/schemas/ODD_transcriptions.xml?ref_type=heads}{ici}.
+
+\item Vous pouvez utiliser n'importe quel éditeur XML pour ce faire.
 \end{itemize}
 \begin{figure}
 \includegraphics[height=.20\textheight]{img/example_ODD.png}
-\caption{Documenting the use of \texttt{milestone} in the edition of the \textit{Regimiento de los prínçipes}.}
+\caption{Documentation de l'utilisation de \texttt{milestone} dans l'édition du \textit{Regimiento de los prínçipes}.}
 \end{figure}
 \end{frame}
 
 
-\begin{frame}{An example of complete ODD}
-\begin{itemize}
-\item An ODD is an XML-TEI document divided in two parts: the documentation and the schema.
-\item For structuring, use \texttt{div1}...\texttt{div9} elements
-\item You can encode your documentation as you would encode any document
-\item And put you schema specification (the \texttt{schemaSpec}) in a \texttt{div1} for instance.  
-\end{itemize}
-\end{frame}
+%\begin{frame}{An example of complete ODD}
+%\begin{itemize}
+%\item An ODD is an XML-TEI document divided in two parts: the documentation and the schema.
+%\item For structuring, use \texttt{div1}...\texttt{div9} elements
+%\item You can encode your documentation as you would encode any document
+%\item And put you schema specification (the \texttt{schemaSpec}) in a \texttt{div1} for instance.  
+%\end{itemize}
+%\end{frame}
 
-\begin{frame}{An example of complete ODD}
-% Image vers ROMA
-\begin{figure}
-\includegraphics[height=.80\textheight]{img/final_ODD.png}
-\caption{Documenting the use of \texttt{milestone} in the edition of the \textit{Regimiento de los prínçipes}.}
-\end{figure}
-\end{frame}
+%\begin{frame}{An example of complete ODD}
+%% Image vers ROMA
+%\begin{figure}
+%\includegraphics[height=.80\textheight]{img/final_ODD.png}
+%\caption{Documenting the use of \texttt{milestone} in the edition of the \textit{Regimiento de los prínçipes}.}
+%\end{figure}
+%\end{frame}
 
 
 %\begin{frame}{Respect datatypes plz}
@@ -556,55 +590,61 @@ How does it work ?
 
 
 
-\begin{frame}[fragile]{Fine-tune the validation with Schematron}
-\begin{minted}{xml}
-<!--The following element can be a child of any elementSpec node-->
-<constraintSpec ident="checks_pb"
-          xmlns:sch="http://purl.oclc.org/dsdl/schematron"
-          xmlns:sqf="http://www.schematron-quickfix.com/validator/process"
-          xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-          scheme="isoschematron">
-          <constraint>
-            <sch:rule context="tei:pb">
-              <sch:assert test="matches(@n, '\d+[vr]')">Something is wrong with the foliation of
-                this page. Have you forgotten the page side indication
-                ?</sch:assert>
-            </sch:rule>
-          </constraint>
-        </constraintSpec>
-\end{minted}
-\end{frame}
+%\begin{frame}[fragile]{Fine-tune the validation with Schematron}
+%\begin{minted}{xml}
+%<!--The following element can be a child of any elementSpec node-->
+%<constraintSpec ident="checks_pb"
+%          xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+%          xmlns:sqf="http://www.schematron-quickfix.com/validator/process"
+%          xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+%          scheme="isoschematron">
+%          <constraint>
+%            <sch:rule context="tei:pb">
+%              <sch:assert test="matches(@n, '\d+[vr]')">Something is wrong with the foliation of
+%                this page. Have you forgotten the page side indication
+%                ?</sch:assert>
+%            </sch:rule>
+%          </constraint>
+%        </constraintSpec>
+%\end{minted}
+%\end{frame}
 
 
 \section{Conclusions}
 \begin{frame}{Conclusions}
 \begin{itemize}
-\item Schemas even minimal, are essential for any scientific publishing project based on TEI.
-\item TEI-based editions without the publication of XML sources is quite unuseful and won't last much
-\item Please provide access to your data (and its documentation) !
+\item Les Même les schémas les plus simples sont indispensables à tout projet de publication scientifique basé sur TEI.
+\item Les éditions basées sur TEI qui ne sont pas accompagnées des sources XML sont pratiquement inutiles et ne feront pas long feu
+\item Veuillez donner accès à vos données (et à leur documentation) !
 \end{itemize}
 \end{frame}
 
+
+\section{Une dernière chose: ODDbyexample}
+\begin{frame}{ODDbyexample}
+\begin{itemize}
+\item ODDByExample est un outil permettant de générer une spécification ODD à partir d'un document XML-TEI existant
+
+\item Il créera une spécification ODD correspondant à ce document
+
+\item Un outil très utile...
+
+\item ... qui peut toutefois poser problème si l'exemple XML-TEI présente des incohérences : celles-ci seront intégrées à votre spécification
+
+\item Veillez à utiliser cet outil avec des fragments de votre document courts et soigneusement vérifiés.
+
+\item Lien : \href{https://github.com/TEIC/Stylesheets/blob/dev/tools/oddbyexample.xsl}{https://github.com/TEIC/Stylesheets/blob/dev/tools/oddbyexample.xsl}
+\end{itemize}
+\end{frame}
 
 \section{Exercise}
 \begin{frame}{Exercises}
 \begin{itemize}
-\item The exercise instructions are in the xml file \texttt{bentham.xml}
+\item Reprenez l'encodage de votre poème, et créez un ODD qui reprend cette modélisation.
 \end{itemize}
 \end{frame}
 
 
-\section{One more thing: ODDbyexample}
-\begin{frame}{ODDbyexample}
-\begin{itemize}
-\item ODDByExample is a tool to produce an ODD using an already existing XML-TEI document
-\item It will create the ODD that matches this document
-\item Very useful tool ...
-\item ... that can be tricky if the XML-TEI example shows inconsistency: they will be embedded into your specification
-\item Make sure to use this tool with small, carefully checked fragments of your document.
-\item Link: \href{https://github.com/TEIC/Stylesheets/blob/dev/tools/oddbyexample.xsl}{https://github.com/TEIC/Stylesheets/blob/dev/tools/oddbyexample.xsl}
-\end{itemize}
-\end{frame}
 
 \begin{frame}{References}
 \printbibliography
