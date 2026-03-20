@@ -39,32 +39,66 @@
 \usepackage{tikz}
 \usetikzlibrary{shapes,calc,matrix,decorations.markings,decorations.pathreplacing,positioning, intersections,backgrounds,through,hobby}
 \usepackage[english]{babel}
+%\AtBeginSection[]
+%{\begin{frame}
+% \frametitle{}  
+%\setlength{\itemsep}{.5cm}
+% \tableofcontents[currentsection,
+%                  hideothersections,
+%		  sectionstyle=hide/hide/hide,
+%                  subsectionstyle=show/show/show/hide
+%                   ]
+% \end{frame} 
+% }
+
+%\AtBeginsection[]
+%{\begin{frame}
+% \frametitle{}  
+% \tableofcontents[currentsection,
+%	 	  currentsection,
+%		  sectionstyle=show/hide,
+%                  sectionstyle=show/shaded/hide
+%                   ]
+% \end{frame} 
+% }
+
+
 \AtBeginSection[]
-{\begin{frame}
- \frametitle{}  
-\setlength{\itemsep}{.5cm}
- \tableofcontents[currentsection,
-                  hideothersubsections,
-		  subsectionstyle=hide/hide/hide,
-                  subsubsectionstyle=show/show/show/hide
-                   ]
- \end{frame} 
- }
+{
+  \begin{frame}
+    \tableofcontents[
+      currentsection,       % Met en évidence la section courante
+      sectionstyle=show/shaded, % Sections : courante en évidence, autres en grisé
+      subsectionstyle=hide  % Cache toutes les sous-sections
+    ]
+  \end{frame}
+}
+ 
+ 
 
 \AtBeginSubsection[]
-{\begin{frame}
- \frametitle{}  
- \tableofcontents[currentsubsection,
-	 	  currentsection,
-		  sectionstyle=show/hide,
-                  subsectionstyle=show/shaded/hide
-                   ]
- \end{frame} 
- }
-
+{
+  \begin{frame}
+    \tableofcontents[
+     currentsection, % Affiche uniquement la section courante
+      hideothersubsections, % Cache les sous-sections des autres sections
+      sectionstyle=show/hide, % Cache les autres sections
+      subsectionstyle=show/shaded/hide % Sous-section courante en évidence, les autres en grisé
+    ]
+  \end{frame}
+}
 
 
 \setbeamertemplate{sections/subsections in toc}[square]
+\setbeamertemplate{bibliography item}[sqare]
+\setbeamertemplate{itemize item}[square]
+\setbeamertemplate{enumerate item}[square]
+\setbeamertemplate{itemize subitem}[square]
+
+
+
+
+\setbeamertemplate{sections/sections in toc}[square]
 \setbeamertemplate{itemize item}[square]
 \setbeamertemplate{enumerate item}[square]
 \setbeamertemplate{itemize subitem}[square]
@@ -78,9 +112,9 @@ doi=true,backend=biber,maxbibnames=9, maxcitenames=4]{biblatex}
 \usetikzlibrary{shapes,calc,matrix,decorations.markings,decorations.pathreplacing,positioning, intersections,backgrounds}
 \tikzstyle{bag} = [align=center]
 
-\date[]{}
+\date[24 mars 2026]{24 mars 2026}
 \author[Matthias \textsc{Gille Levenson}]{\\~\\ Matthias \textsc{Gille Levenson}\\   {\scriptsize Université Versailles Saint Quentin (UVSQ) \& École Normale Supérieure de Lyon, France}\\ {\tiny matthias [dot] gille [-] levenson [at] ens-lyon [dot] fr}\vspace{-1cm}}
-\title[TEI schemata]{Les schémas\\}
+\title[Le XML]{Session 1: Introduction générale au XML et à la TEI\\ {\small Atelier Humanités Numériques \\ Lyon}}
 %\titlegraphic{\hspace{0.5cm}\includegraphics[scale=0.21]{/home/mgl/Bureau/Travail/admin/logos/ensl.png}\hspace{0.5cm}\includegraphics[scale=0.23]{/home/mgl/Bureau/Travail/admin/logos/ciham.pdf}\hspace{0.5cm}}
 \usepackage[justification=centering]{caption}
 \begin{document}

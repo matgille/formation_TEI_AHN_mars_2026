@@ -134,9 +134,9 @@ doi=true,backend=biber,maxbibnames=9, maxcitenames=4]{biblatex}
 
 \begin{frame}{eXtensible Marking Language}
 \begin{itemize}
-\item XML stands for \textbf{eXtensible Markup Language}.
-\item It is a format that allows to describe any kind of textual (or numeric) data 
-\item It is the actual \textit{format} the TEI uses, but it might change/evolve in the future.
+\item XML signifie \textbf{eXtensible Markup Language}.
+\item Il s'agit d'un format qui permet de décrire tout type de données textuelles (ou numériques) 
+\item Il s'agit du \textit{format} actuellement utilisé par le TEI, mais il est susceptible de changer ou d'évoluer à l'avenir.
 \end{itemize}
 \end{frame}
 
@@ -150,12 +150,12 @@ doi=true,backend=biber,maxbibnames=9, maxcitenames=4]{biblatex}
 
 
 \begin{frame}{Vocabulaire}
-Four main objects (called \textit{nodes}):
+Quatre objets principaux (appelés \textit{n\oe uds}) :
 \begin{itemize}
-\item \textbf{Element} nodes: the basic object of any XML document: \\ \texttt{<elementName/>} or \texttt{<elementName>...</elementName>}
-\item \textbf{Attribute} nodes: part of an element that helps specifying it: \\ \texttt{attributeName="value"}
-\item \textbf{Text nodes}: every textual object inside an element
-\item \textbf{Comment} nodes: content not parsed by the machine: \\ \texttt{<!-{}- some useful comment -{}->}
+\item N\oe uds \textbf{éléments} : l'objet de base de tout document XML : \\ \texttt{<elementName/>} ou \texttt{<elementName>...</elementName>}
+\item N\oe uds \textbf{attributs} : partie d'un élément qui permet de le définir : \\ \texttt{attributeName="value"}
+\item N\oe uds \textbf{texte} : tout objet textuel contenu dans un élément
+\item N\oe uds \textbf{Commentaire} : contenu non traité par la machine : \\ \texttt{<!-{}- un commentaire utile -{}->}
 \end{itemize}
 \end{frame}
 
@@ -204,9 +204,9 @@ Four main objects (called \textit{nodes}):
 
 
 
-\begin{frame}{The root node/element}
+\begin{frame}{Conformité}
 \begin{itemize}
-\item One and only one top element that contains everything else
+\item  Un seul et unique élément de niveau supérieur qui contient tout le reste
 \end{itemize}
 \begin{center}
 \begin{figure}
@@ -219,7 +219,7 @@ Four main objects (called \textit{nodes}):
 
 \begin{frame}{Conformité}
 \begin{itemize}
-\item \textit{No} overlapping elements
+\item \textit{Pas} d'éléments qui se chevauchent
 \end{itemize}
 \begin{center}
 \begin{figure}
@@ -232,7 +232,7 @@ Four main objects (called \textit{nodes}):
 
 \begin{frame}{Conformité}
 \begin{itemize}
-\item Some elements can contain other elements, but elements can also be empty
+\item Certains éléments peuvent contenir d'autres éléments, mais ils peuvent aussi être vides
 \end{itemize}
 \begin{center}
 \begin{figure}
@@ -246,7 +246,7 @@ Four main objects (called \textit{nodes}):
 
 \begin{frame}{Conformité}
 \begin{itemize}
-\item Les valeurs d'attributs vont entre guillemets
+\item Les valeurs d'attributs sont entre guillemets
 \end{itemize}
 \begin{center}
 \begin{figure}
@@ -267,16 +267,16 @@ Four main objects (called \textit{nodes}):
 \end{frame}
 
 
-\subsection{Application avec Oxygen}
+\subsection{Application. Corriger un XML mal structuré}
 
-\begin{frame}
+\begin{frame}{Oxygen}
 \begin{itemize}
 \item Oxygen XML editor est l'outil le plus utilisé, car il est développé en collaboration avec des utilisateur.ices de la TEI.
 \item Il s'agit d'un outil propriétaire qui peut être remplacé par d'autres logiciels comme Jedit
 \end{itemize}
 \end{frame}
 
-\begin{frame}{Raccourcis clavier}
+\begin{frame}{Raccourcis clavier dans Oxygen}
 La touche ACTION correspond à CTRL sur Windows/Linux et POMME sur Mac.
 \begin{itemize}
 \item Créer un nouveau document: \texttt{ACTION + N}
@@ -287,13 +287,13 @@ La touche ACTION correspond à CTRL sur Windows/Linux et POMME sur Mac.
 \end{frame}
 
 
-\begin{frame}{Exercices}
+\begin{frame}{Application}
 La touche ACTION correspond à CTRL sur Windows/Linux et POMME sur Mac.
 \begin{itemize}
-\item Créer un nouveau document: \texttt{ACTION + N}
-\item Ouvrir un nouveau document: \texttt{ACTION + O}
-\item Indenter (mettre en forme pour rendre lisible avec des sauts de lignes et des tabulations): \texttt{ACTION + SHIFT + P}
-\item Commenter un fragment de document XML: \texttt{ACTION + SHIFT + ,}
+\item Ouvrez le document \texttt{session\_1\_introduction\_generale/exercices/exercice\_1.xml}
+\item Indentez le document. Que se passe-t-il ?
+\item Tâchez de réparer la structure afin d'avoir du XML conforme.
+\item La lecture des messages d'erreur est souvent bien utile !
 \end{itemize}
 \end{frame}
 
@@ -332,26 +332,23 @@ La touche ACTION correspond à CTRL sur Windows/Linux et POMME sur Mac.
 \subsection{Principes}
 \begin{frame}{}
 \begin{itemize}
-\item Separate the appearance and the \enquote{essence} of textual objects
-\item Décrire cette essence en tant selon un \textbf{consensus scientifique}
+\item Distinguer l'apparence et l'\enquote{essence} des objets textuels
+\item Décrire cette \enquote{essence} selon un \textbf{consensus scientifique}
 \end{itemize}
 \begin{center}
 \begin{figure}
 \includegraphics[width=.8\textwidth]{img/texte.png}
 \includegraphics[width=.8\textwidth]{img/apparat.png}
-\caption{Fragment of an edition of the \textit{Castigos de Sancho IV} \parencite{sanchez_VersionInterpoladaCastigos_2003}}
+\caption{Fragment d'une édition des \textit{Castigos de Sancho IV} \parencite{sanchez_VersionInterpoladaCastigos_2003}}
 \end{figure}
 \end{center}
 \end{frame}
 
-\begin{frame}{}
-\begin{itemize}
-\item Séparer l'apparence et l'\enquote{essence} des objets textuels
-\end{itemize}
+\begin{frame}
 \begin{center}
 \begin{figure}
 \includegraphics[width=.8\textwidth]{img/xml_structured.png}
-\caption{Its possible representation in XML-TEI}
+\caption{Une représentation possible en XML-TEI}
 \end{figure}
 \end{center}
 \end{frame}
@@ -369,9 +366,15 @@ La TEI est le standard de fait pour le partage des données actuellement
 \end{frame}
 
 
+\begin{frame}[containsverbatim]{L'édition critique}
+% Image TEI castillan / latin
+\end{frame}
 
-\subsection{Décrire des textes / traiter des représentations textuelles}
 
+
+\begin{frame}[containsverbatim]{La critique génétique}
+% Image TEI castillan / latin
+\end{frame}
 
 % https://stackoverflow.com/a/72696959
 \begin{frame}[containsverbatim]{La collation automatisée}
@@ -390,10 +393,6 @@ for rdg in apps:
 \begin{frame}[containsverbatim]{L'alignement multilingue de sources vernaculaires médiévales}
 % Table de concordance multilingue
 \end{frame}
-
-
-\section{Projets utilisant la TEI}
-
 
 \section{Exemples utilisés au long de la formation}
 
