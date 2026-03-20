@@ -1,0 +1,16 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+cm}{\PYGZlt{}!\PYGZhy{}\PYGZhy{}The following element can be a child of any elementSpec node\PYGZhy{}\PYGZhy{}\PYGZgt{}}
+\PYG{n+nt}{\PYGZlt{}constraintSpec}\PYG{+w}{ }\PYG{n+na}{ident=}\PYG{l+s}{\PYGZdq{}checks\PYGZus{}pb\PYGZdq{}}
+\PYG{+w}{          }\PYG{n+na}{xmlns:sch=}\PYG{l+s}{\PYGZdq{}http://purl.oclc.org/dsdl/schematron\PYGZdq{}}
+\PYG{+w}{          }\PYG{n+na}{xmlns:sqf=}\PYG{l+s}{\PYGZdq{}http://www.schematron\PYGZhy{}quickfix.com/validator/process\PYGZdq{}}
+\PYG{+w}{          }\PYG{n+na}{xmlns:xsl=}\PYG{l+s}{\PYGZdq{}http://www.w3.org/1999/XSL/Transform\PYGZdq{}}
+\PYG{+w}{          }\PYG{n+na}{scheme=}\PYG{l+s}{\PYGZdq{}isoschematron\PYGZdq{}}\PYG{n+nt}{\PYGZgt{}}
+\PYG{+w}{          }\PYG{n+nt}{\PYGZlt{}constraint\PYGZgt{}}
+\PYG{+w}{            }\PYG{n+nt}{\PYGZlt{}sch:rule}\PYG{+w}{ }\PYG{n+na}{context=}\PYG{l+s}{\PYGZdq{}tei:pb\PYGZdq{}}\PYG{n+nt}{\PYGZgt{}}
+\PYG{+w}{              }\PYG{n+nt}{\PYGZlt{}sch:assert}\PYG{+w}{ }\PYG{n+na}{test=}\PYG{l+s}{\PYGZdq{}matches(@n, \PYGZsq{}\PYGZbs{}d+[vr]\PYGZsq{})\PYGZdq{}}\PYG{n+nt}{\PYGZgt{}}Something\PYG{+w}{ }is\PYG{+w}{ }wrong\PYG{+w}{ }with\PYG{+w}{ }the\PYG{+w}{ }foliation\PYG{+w}{ }of
+\PYG{+w}{                }this\PYG{+w}{ }page.\PYG{+w}{ }Have\PYG{+w}{ }you\PYG{+w}{ }forgotten\PYG{+w}{ }the\PYG{+w}{ }page\PYG{+w}{ }side\PYG{+w}{ }indication
+\PYG{+w}{                }?\PYG{n+nt}{\PYGZlt{}/sch:assert\PYGZgt{}}
+\PYG{+w}{            }\PYG{n+nt}{\PYGZlt{}/sch:rule\PYGZgt{}}
+\PYG{+w}{          }\PYG{n+nt}{\PYGZlt{}/constraint\PYGZgt{}}
+\PYG{+w}{        }\PYG{n+nt}{\PYGZlt{}/constraintSpec\PYGZgt{}}
+\end{Verbatim}

@@ -112,9 +112,9 @@ doi=true,backend=biber,maxbibnames=9, maxcitenames=4]{biblatex}
 \usetikzlibrary{shapes,calc,matrix,decorations.markings,decorations.pathreplacing,positioning, intersections,backgrounds}
 \tikzstyle{bag} = [align=center]
 
-\date[]{}
+\date[24 mars 2026]{24 mars 2026}
 \author[Matthias \textsc{Gille Levenson}]{\\~\\ Matthias \textsc{Gille Levenson}\\   {\scriptsize Université Versailles Saint Quentin (UVSQ) \& École Normale Supérieure de Lyon, France}\\ {\tiny matthias [dot] gille [-] levenson [at] ens-lyon [dot] fr}\vspace{-1cm}}
-\title[TEI schemata]{Introduction générale au XML et à la TEI\\ {\small Atelier Humanités Numériques \& Lyon}}
+\title[Le XML]{Session 1: Introduction générale au XML et à la TEI\\ {\small Atelier Humanités Numériques \\ Lyon}}
 %\titlegraphic{\hspace{0.5cm}\includegraphics[scale=0.21]{/home/mgl/Bureau/Travail/admin/logos/ensl.png}\hspace{0.5cm}\includegraphics[scale=0.23]{/home/mgl/Bureau/Travail/admin/logos/ciham.pdf}\hspace{0.5cm}}
 \usepackage[justification=centering]{caption}
 \begin{document}
@@ -125,12 +125,12 @@ doi=true,backend=biber,maxbibnames=9, maxcitenames=4]{biblatex}
 
 \begin{frame}{Accès aux slides}
 \begin{itemize}
-\item \href{https://github.com/matgille/Antidote_workshop_2025_ODD.git}{https://github.com/matgille/Antidote\_workshop\_2025\_ODD.git}
+\item \href{https://github.com/matgille/formation_TEI_AHN_mars_2026.git}{https://github.com/matgille/formation\_TEI\_AHN\_mars\_2026.git}
 \end{itemize}
 \end{frame}
 
 \section{Le format XML}
-
+\subsection{Qu'est-ce que le XML?}
 
 \begin{frame}{eXtensible Marking Language}
 \begin{itemize}
@@ -140,7 +140,27 @@ doi=true,backend=biber,maxbibnames=9, maxcitenames=4]{biblatex}
 \end{itemize}
 \end{frame}
 
-\begin{frame}{Two important concepts: Conformité and validity}
+\begin{frame}{Composants principaux du XML}
+\begin{itemize}
+\item Le XML peut être décomposés en éléments principaux, qu'on appelle des \textbf{noeuds}
+\item Les noeuds principaux sont: le texte, les éléments, les attributs, les commentaires.
+\item Ces noeuds sont représentés à l'aide de caractères spécifiques
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}{Vocabulaire}
+Four main objects (called \textit{nodes}):
+\begin{itemize}
+\item \textbf{Element} nodes: the basic object of any XML document: \\ \texttt{<elementName/>} or \texttt{<elementName>...</elementName>}
+\item \textbf{Attribute} nodes: part of an element that helps specifying it: \\ \texttt{attributeName="value"}
+\item \textbf{Text nodes}: every textual object inside an element
+\item \textbf{Comment} nodes: content not parsed by the machine: \\ \texttt{<!-{}- some useful comment -{}->}
+\end{itemize}
+\end{frame}
+
+\subsection{Conformité et validité}
+\begin{frame}{Conformité et validité}
 \begin{itemize}
 \item Un document \textbf{doit} être conforme au XML, c'est-à-dire respecter l'ensemble des règles du XML
 \item Un document \textbf{peut} être validé par un \textbf{schéma}, c'est-à-dire un document qui vérifie des règles propres à une spécification particulière
@@ -151,14 +171,28 @@ doi=true,backend=biber,maxbibnames=9, maxcitenames=4]{biblatex}
 \end{frame}
 
 
-\begin{frame}{Conformité}
+\begin{frame}{Conformité. Composants principaux du XML}
 \begin{itemize}
-\item XML is composed of elements, attributes, attribute values and text.
+\item Il existe peu de règles en XML mais elles sont fondamentales:
+\item Du point de vue de la \textit{modélisation} (représentation abstraite de l'objet XML)
+\begin{itemize}
+\item Règle d'enchâssement des éléments
+\item Règle d'unicité des attributs
 \end{itemize}
+\item Du point de vue de la \textit{sérialisation} (expression de l'objet XML à l'aide d'une chaîne de caractères)
+\begin{itemize}
+\item Règles d'expression d'un élément
+\item Règle d'expression des attributs: espaces et guillemets obligatoires
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}{Conformité. Composants principaux du XML}
 \begin{center}
 \begin{figure}
 \includegraphics[height=.5\textheight]{img/element_attribute_text.png}
-\caption{Ce document XML est conforme (but incorrect/incomplete TEI)}
+\caption{Ce document XML est conforme (mais la TEI est \textbf{invalide})}
 \end{figure}
 \end{center}
 %\begin{itemize}
@@ -168,15 +202,6 @@ doi=true,backend=biber,maxbibnames=9, maxcitenames=4]{biblatex}
 
 
 
-\begin{frame}{Recap: vocabulary}
-Four main objects (called \textit{nodes}):
-\begin{itemize}
-\item \textbf{Element} nodes: the basic object of any XML document: \\ \texttt{<elementName/>} or \texttt{<elementName>...</elementName>}
-\item \textbf{Attribute} nodes: part of an element that helps specifying it: \\ \texttt{attributeName="value"}
-\item \textbf{Text nodes}: every textual object inside an element
-\item \textbf{Comment} nodes: content not parsed by the machine: \\ \texttt{<!-{}- some useful comment -{}->}
-\end{itemize}
-\end{frame}
 
 
 \begin{frame}{The root node/element}
@@ -242,6 +267,36 @@ Four main objects (called \textit{nodes}):
 \end{frame}
 
 
+\subsection{Application avec Oxygen}
+
+\begin{frame}
+\begin{itemize}
+\item Oxygen XML editor est l'outil le plus utilisé, car il est développé en collaboration avec des utilisateur.ices de la TEI.
+\item Il s'agit d'un outil propriétaire qui peut être remplacé par d'autres logiciels comme Jedit
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Raccourcis clavier}
+La touche ACTION correspond à CTRL sur Windows/Linux et POMME sur Mac.
+\begin{itemize}
+\item Créer un nouveau document: \texttt{ACTION + N}
+\item Ouvrir un nouveau document: \texttt{ACTION + O}
+\item Indenter (mettre en forme pour rendre lisible avec des sauts de lignes et des tabulations): \texttt{ACTION + SHIFT + P}
+\item Commenter un fragment de document XML: \texttt{ACTION + SHIFT + ,}
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}{Exercices}
+La touche ACTION correspond à CTRL sur Windows/Linux et POMME sur Mac.
+\begin{itemize}
+\item Créer un nouveau document: \texttt{ACTION + N}
+\item Ouvrir un nouveau document: \texttt{ACTION + O}
+\item Indenter (mettre en forme pour rendre lisible avec des sauts de lignes et des tabulations): \texttt{ACTION + SHIFT + P}
+\item Commenter un fragment de document XML: \texttt{ACTION + SHIFT + ,}
+\end{itemize}
+\end{frame}
+
 
 \section{Qu'est-ce que la TEI?}
 
@@ -266,10 +321,19 @@ Four main objects (called \textit{nodes}):
 \end{frame}
 
 
+\begin{frame}{Ce qu'il vous faudra apprendre}
+\begin{itemize}
+\item Un langage de navigation dans le XML (XPath)
+\item Un langage de transformation du XML pour la visualisation (XSLT, HTML)
+\end{itemize}
+\end{frame}
+
+
 \subsection{Principes}
 \begin{frame}{}
 \begin{itemize}
 \item Separate the appearance and the \enquote{essence} of textual objects
+\item Décrire cette essence en tant selon un \textbf{consensus scientifique}
 \end{itemize}
 \begin{center}
 \begin{figure}
@@ -295,10 +359,12 @@ Four main objects (called \textit{nodes}):
 
 \section{La TEI, pour quoi faire?}
 \begin{frame}{La TEI, pour quoi faire?}
+La TEI est le standard de fait pour le partage des données actuellement
 \begin{itemize}
-\item Describing a text using the experience of a \textbf{large community}
-\item Producing semantic data that can be \textbf{read} by the human and \textbf{processed} by the computer
-\item Make sharing and reusability of these representations easier
+\item Pour décrire un objet textuel en utilisant l'expérience d'une communauté
+\item Pour produire des données qui peuvent être \textbf{lues} par l'être humain et \textbf{traitées} par la machine
+\item Pour faciliter l'échange de ces descriptions
+\item Pour faciliter l'interopérabilité des données
 \end{itemize}
 \end{frame}
 
@@ -306,19 +372,37 @@ Four main objects (called \textit{nodes}):
 
 \subsection{Décrire des textes / traiter des représentations textuelles}
 
-\begin{frame}{Un exemple de traitement du texte: la collation automatisée}
-\begin{minted}{python}
-For rdg in apps:
-    if rdg.is_empty():
-        if preceding_rdg.is_empty():
+
+% https://stackoverflow.com/a/72696959
+\begin{frame}[containsverbatim]{La collation automatisée}
+\begin{minted}[breaklines, ,linenos,numbersep=3mm]{python}
+for rdg in apps:
+    if rdg.is_empty() and following_rdg.is_empty():
             create_node(witEnd)
 \end{minted}
+\end{frame}
+
+\begin{frame}[containsverbatim]{L'alignement multilingue de sources vernaculaires médiévales}
+% Image TEI castillan / latin
+\end{frame}
+
+
+\begin{frame}[containsverbatim]{L'alignement multilingue de sources vernaculaires médiévales}
+% Table de concordance multilingue
 \end{frame}
 
 
 \section{Projets utilisant la TEI}
 
 
+\section{Exemples utilisés au long de la formation}
+
+\begin{frame}{}
+\begin{itemize}
+\item Un sonnet
+\item Une scène de \textit{Juste la fin du monde} de Jean-Luc Lagarce (1994)
+\end{itemize}
+\end{frame}
 
 
 \begin{frame}{References}

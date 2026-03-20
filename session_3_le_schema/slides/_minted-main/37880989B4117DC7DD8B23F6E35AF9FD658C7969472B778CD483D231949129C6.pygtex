@@ -1,0 +1,10 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nt}{\PYGZlt{}elementSpec}\PYG{+w}{ }\PYG{n+na}{ident=}\PYG{l+s}{\PYGZdq{}material\PYGZdq{}}\PYG{+w}{ }\PYG{n+na}{mode=}\PYG{l+s}{\PYGZdq{}change\PYGZdq{}}\PYG{+w}{ }\PYG{n+na}{module=}\PYG{l+s}{\PYGZdq{}msdecription\PYGZdq{}}\PYG{n+nt}{\PYGZgt{}}
+\PYG{+w}{    }\PYG{n+nt}{\PYGZlt{}attList\PYGZgt{}}
+\PYG{+w}{        }\PYG{n+nt}{\PYGZlt{}attDef}\PYG{+w}{ }\PYG{n+na}{ident=}\PYG{l+s}{\PYGZdq{}function\PYGZdq{}}\PYG{+w}{ }\PYG{n+na}{mode=}\PYG{l+s}{\PYGZdq{}delete\PYGZdq{}}\PYG{n+nt}{/\PYGZgt{}}
+\PYG{+w}{        }\PYG{n+nt}{\PYGZlt{}attDef}\PYG{+w}{ }\PYG{n+na}{ident=}\PYG{l+s}{\PYGZdq{}target\PYGZdq{}}\PYG{+w}{ }\PYG{n+na}{mode=}\PYG{l+s}{\PYGZdq{}delete\PYGZdq{}}\PYG{n+nt}{/\PYGZgt{}}
+\PYG{+w}{        }\PYG{n+nt}{\PYGZlt{}attDef}\PYG{+w}{ }\PYG{n+na}{ident=}\PYG{l+s}{\PYGZdq{}resp\PYGZdq{}}\PYG{+w}{ }\PYG{n+na}{mode=}\PYG{l+s}{\PYGZdq{}delete\PYGZdq{}}\PYG{n+nt}{/\PYGZgt{}}
+\PYG{+w}{        }\PYG{n+nt}{\PYGZlt{}attDef}\PYG{+w}{ }\PYG{n+na}{ident=}\PYG{l+s}{\PYGZdq{}ref\PYGZdq{}}\PYG{+w}{ }\PYG{n+na}{mode=}\PYG{l+s}{\PYGZdq{}delete\PYGZdq{}}\PYG{n+nt}{/\PYGZgt{}}
+\PYG{+w}{    }\PYG{n+nt}{\PYGZlt{}/attList\PYGZgt{}}
+\PYG{n+nt}{\PYGZlt{}/elementSpec\PYGZgt{}}
+\end{Verbatim}
