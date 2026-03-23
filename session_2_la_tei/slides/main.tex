@@ -423,11 +423,32 @@ son régime de distribution (licence), la source, etc.
 \end{minted}
 \end{frame}
 
+\begin{frame}{Les TEI subsets}
+\begin{center}
+\begin{figure}
+\includegraphics[height=.6\textheight]{../../img/schemas.png}
+\end{figure}
+\begin{itemize}
+\item Quand on ouvre un document XML avec Oxygen, les des spécifications de la TEI sont disponibles
+\item On va commencer à travailler avec TEI All.
+\end{itemize}
+\end{center}
+\end{frame}
 
 \begin{frame}{Exercice: encoder les metadonnées du \textit{Dormeur du val}}
 \begin{itemize}
-\item Proposez un encodage minimal des metadonnées du poème de Rimbaud. Vous êtes responsable
-de l'édition du poème et de son encodage. Proposez une licence de diffusion libre (Creative Commons par exemple) de votre édition.
+\item Proposez un encodage minimal des metadonnées du poème de Rimbaud. Vous reprenez un poème édité ailleurs, et êtes responsable de son encodage. Proposez une licence de diffusion libre (Creative Commons par exemple) de votre édition.
+\item Commencez par ouvrir un nouveau document avec la spécification \enquote{TEI All}
+\item Vérifiez bien que votre encodage est correct avec \enquote{Valider}: 
+
+\begin{figure}
+\includegraphics[width=.5\textwidth]{../../img/valider_document.png}
+\caption{Le bouton de validation figure un icone de page avec une encoche (rouge)}
+\end{figure}
+\begin{figure}
+\includegraphics[width=.5\textwidth]{../../img/document_valide.png}
+\caption{Le document est valide: un message doit s'afficher en bas du logiciel avec un carré vert}
+\end{figure}
 \end{itemize}
 \end{frame}
 
@@ -440,6 +461,7 @@ de l'édition du poème et de son encodage. Proposez une licence de diffusion li
 \item Les divisions sont marquées par \texttt{div} ou \texttt{div1, div2, div3}. Le choix entre les deux est obligatoire !
 \item Les paragraphes de la prose, par \texttt{p}
 \item Les sections moins marquées sémantiquement peuvent être indiquées par \texttt{ab} (anonymous block)
+\item On peut enchâsser les divisions, mais (logiquement) pas les paragraphes.
 \end{itemize}
 \end{frame}
 
@@ -456,22 +478,58 @@ de l'édition du poème et de son encodage. Proposez une licence de diffusion li
 
 \begin{frame}{Exercice}
 \begin{itemize}
-\item Dans un nouveau document XML, encodez la structure minimale de l'incipit de la \textit{Recherche}, comme si vous deviez éditer le texte intégral.
+\item Dans un nouveau document XML-TEI (Spécification \enquote{All}), encodez la structure minimale de l'incipit de la \textit{Recherche}, comme si vous deviez éditer le texte intégral.
 \end{itemize}
 \end{frame}
 
 \subsubsection{Représentation des sources primaires}
 \begin{frame}{Représentation des sources primaires}
 \begin{itemize}
-\item
+\item Un chapitre est consacré aux méthodes d'encodage des sources primaires. 
+\item Il permet de décrire les phénomènes visibles dans les pages ou feuillets d'un livre.
+\item Ce module est disponible ici: \href{https://www.tei-c.org/release/doc/tei-p5-doc/fr/html/PH.html}{https://www.tei-c.org/release/doc/tei-p5-doc/fr/html/PH.html}
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}{Représentation des sources primaires}
+Les principales caractéristiques sont
+\begin{itemize}
+\item Description de l'organisation du livre, du recueil ou de la page:
+\begin{itemize}
+\item changement de ligne: \texttt{lb} pour \textbf{line beginning}
+\item changement de page: \texttt{pb} pour \textbf{page beginning}
+\item changement de colonne: \texttt{cb} pour \textbf{column beginning}
+\item changement de cahier: \texttt{gb} pour \textbf{gathering beginning}
+\end{itemize}
+\item Altération du texte \enquote{originel}:
+\begin{itemize}
+\item ajouts: \texttt{add}
+\item suppressions, biffages: \texttt{del}
+\item substitutions: \texttt{subst} avec les éléments antérieurs combinés
+\end{itemize}
+\item Interventions éditoriales:
+\begin{itemize}
+\item expansions d'abréviations: \texttt{abbr} \texttt{expan}
+\item corrections: \texttt{sic} et \texttt{corr}
+\item Ces interventions apparaissent dans un élément \texttt{choice} (\enquote{alternative encodings for the same point in a text})
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}{Exercice}
+\begin{itemize}
+\item En reprenant votre encodage de l'\textit{incipit} de la \textit{Recherche}, ainsi que le texte disponible sur wikisource, marquez les changements de page tels qu'ils apparaissent dans l'édition de 1946.
 \end{itemize}
 \end{frame}
 
 \subsubsection{Description de manuscrits}
 \begin{frame}{Description de manuscrits}
 \begin{itemize}
-\item Ce module peut ête confondu avec le module précédent, mais il concerne la description physique du manuscrit et non pas la description de la page. 
-\item On trouvera donc ses éléments essentiellement dans le \texttt{teiHeader}
+\item Ce module peut être confondu avec le module précédent, mais il concerne la description physique du manuscrit et non pas la description de la page. 
+\item On trouvera donc ses éléments essentiellement dans le \texttt{teiHeader}, et plus précisément dans le \texttt{sourceDesc}
+\item On en trouvera les spécificité dans \href{https://tei-c.org/release/doc/tei-p5-doc/en/html/MS.html}{https://tei-c.org/release/doc/tei-p5-doc/en/html/MS.html}
 \end{itemize}
 \end{frame}
 
@@ -485,10 +543,17 @@ de l'édition du poème et de son encodage. Proposez une licence de diffusion li
 \end{frame}
 
 
-\begin{frame}{Identifier les entités nommées}
-\begin{itemize}
-\item 
-\end{itemize}
+\begin{frame}[containsverbatim]{Identifier les entités nommées}
+\begin{minted}[breaklines,numbersep=2mm]{xml}
+<seg type="exemple">
+    e dize más
+    <app type="lemmes">
+        <lem wit="#E #R #D #F #Z">de</lem>
+        <rdg wit="#Q"/>
+    </app>
+    <persName ref="#Cesar">Çesar</persName> que la cobdiçia e la mala manera de sobrepujar sobre los otros [...]
+</seg>
+\end{minted}
 \end{frame}
 
 \begin{frame}{Désambiguiser les entités nommées}
@@ -499,6 +564,52 @@ de l'édition du poème et de son encodage. Proposez une licence de diffusion li
 \item Ces deux éléments seront présents dans l'élément \texttt{sourceDesc}
 \end{itemize}
 \end{frame}
+
+
+\begin{frame}[containsverbatim]{Désambiguiser les entités nommées: exemple}
+\begin{minted}[breaklines,numbersep=2mm]{xml}
+<sourceDesc>
+    <listPerson type="personnages">
+        <person xml:id="AlexandrelG">
+            <persName>Alexandre le Grand</persName>
+        </person>
+        <person xml:id="SCatherine">
+            <persName>Sainte Catherine</persName>
+        </person>
+        <person xml:id="Cincinnatus">
+            <persName>Cincinnatus</persName>
+        </person>
+        <person xml:id="Cesar">
+            <persName>César</persName>
+        </person>
+    </listPerson>
+</sourceDesc>
+\end{minted}
+\end{frame}
+
+
+
+\begin{frame}[containsverbatim]{Désambiguiser les entités nommées: exemple}
+On peut aller assez loin dans la description biographique d'une personne% (et d'autres informations en cas de lieu ou d'organisations)
+\begin{minted}[breaklines,numbersep=2mm]{xml}
+<person xml:id="Ovi01" sex="M" role="poet">
+    <persName xml:lang="en">Ovid</persName>, <persName xml:lang="la">Publius Ovidius Naso</persName>
+    <birth when="-0044-03-20"> 20 March 43 BC 
+        <placeName>
+            <settlement type="city">Sulmona</settlement>
+            <country key="IT">Italy</country>
+        </placeName>
+    </birth>
+    <death notBefore="0017" notAfter="0018">17 or 18 AD 
+        <placeName>
+            <settlement type="city">Tomis (Constanta)</settlement>
+            <country key="RO">Romania</country>
+        </placeName>
+    </death>
+</person>
+\end{minted}
+\end{frame}
+
 
 
 \subsubsection{Apparats critiques}
@@ -636,7 +747,6 @@ ou encore
 \begin{minted}[breaklines,numbersep=2mm]{xml}
 <body>
      <head>Le misanthrophe</head>
-     <!-- AJOUT IDENTIFIANTS DE PERSONNAGES -->
      <castList>
         <castItem xml:id="philinte">Philinte</castItem>
         <castItem xml:id="alceste">Alceste</castItem>
@@ -660,8 +770,8 @@ ou encore
 \end{frame}
 
 
-\begin{frame}{References}
-\printbibliography
-\end{frame}
+%\begin{frame}{References}
+%\printbibliography
+%\end{frame}
 
 \end{document}

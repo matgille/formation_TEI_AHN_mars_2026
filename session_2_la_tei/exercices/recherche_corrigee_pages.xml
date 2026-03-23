@@ -31,8 +31,10 @@
       <body>
          <div type="tome" n="1">
             <head>Du Côté de Chez Swann</head>
+            <pb n="10" break="yes"/>
             <div type="partie" n="1">
                <head>Première partie : Combray</head>
+               <pb n="11" break="yes"/>
                <div type="chapitre" n="1">
                   <head>I.</head>
                   <p>Longtemps, je me suis couché de bonne heure. Parfois, à
@@ -52,22 +54,23 @@
                      se rendre compte que le bougeoir n'était plus allumé. Puis
                      elle commençait à me devenir inintelligible, comme après la
                      métempsycose les pensées d'une existence antérieure ; le
-                     sujet du livre se détachait de moi, j'étais libre de m'y
-                     appliquer ou non ; aussitôt je recouvrais la vue et j'étais
-                     bien étonné de trouver autour de moi une obscurité, douce
-                     et reposante pour mes yeux, mais peut-être plus encore pour
-                     mon esprit, à qui elle apparaissait comme une chose sans
-                     cause, incompréhensible, comme une chose vraiment obscure.
-                     Je me demandais quelle heure il pouvait être ; j'entendais
-                     le sifflement des trains qui, plus ou moins éloigné, comme
-                     le chant d'un oiseau dans une forêt, relevant les
-                     distances, me décrivait l'étendue de la campagne déserte où
-                     le voyageur se hâte vers la station prochaine ; et le petit
-                     chemin qu'il suit va être gravé dans son souvenir par
-                     l'excitation qu'il doit à des lieux nouveaux, à des actes
-                     inaccoutumés, à la causerie récente et aux adieux sous la
-                     lampe étrangère qui le suivent encore dans le silence de la
-                     nuit, à la douceur prochaine du retour. </p>
+                     sujet du livre se détachait de moi, <pb n="12" break="yes"
+                     />j'étais libre de m'y appliquer ou non ; aussitôt je
+                     recouvrais la vue et j'étais bien étonné de trouver autour
+                     de moi une obscurité, douce et reposante pour mes yeux,
+                     mais peut-être plus encore pour mon esprit, à qui elle
+                     apparaissait comme une chose sans cause, incompréhensible,
+                     comme une chose vraiment obscure. Je me demandais quelle
+                     heure il pouvait être ; j'entendais le sifflement des
+                     trains qui, plus ou moins éloigné, comme le chant d'un
+                     oiseau dans une forêt, relevant les distances, me décrivait
+                     l'étendue de la campagne déserte où le voyageur se hâte
+                     vers la station prochaine ; et le petit chemin qu'il suit
+                     va être gravé dans son souvenir par l'excitation qu'il doit
+                     à des lieux nouveaux, à des actes inaccoutumés, à la
+                     causerie récente et aux adieux sous la lampe étrangère qui
+                     le suivent encore dans le silence de la nuit, à la douceur
+                     prochaine du retour. </p>
                   <p>J'appuyais tendrement mes joues contre les belles joues de
                      l'oreiller qui, pleines et fraîches, sont comme les joues
                      de notre enfance. Je frottais une allumette pour regarder
@@ -85,22 +88,22 @@
                      rester toute la nuit à souffrir sans remède.</p>
                   <p>Je me rendormais, et parfois je n'avais plus que de courts
                      réveils d'un instant, le temps d'entendre les craquements
-                     organiques des boiseries, d'ouvrir les yeux pour fixer le
-                     kaléidoscope de l'obscurité, de goûter grâce à une lueur
-                     momentanée de conscience le sommeil où étaient plongés les
-                     meubles, la chambre, le tout dont je n'étais qu'une petite
-                     partie et à l'insensibilité duquel je retournais vite
-                     m'unir. Ou bien en dormant j'avais rejoint sans effort un
-                     âge à jamais révolu de ma vie primitive, retrouvé telle de
-                     mes terreurs enfantines comme celle que mon grand-oncle me
-                     tirât par mes boucles et qu'avait dissipée le jour - date
-                     pour moi d'une ère nouvelle - où on les avait coupées.
-                     J'avais oublié cet événement pendant mon sommeil, j'en
-                     retrouvais le souvenir aussitôt que j'avais réussi à
-                     m'éveiller pour échapper aux mains de mon grand-oncle, mais
-                     par mesure de précaution j'entourais complètement ma tête
-                     de mon oreiller avant de retourner dans le monde des
-                     rêves.</p>
+                     organiques des boiseries, d'ouvrir<pb n="13" break="yes"
+                     />les yeux pour fixer le kaléidoscope de l'obscurité, de
+                     goûter grâce à une lueur momentanée de conscience le
+                     sommeil où étaient plongés les meubles, la chambre, le tout
+                     dont je n'étais qu'une petite partie et à l'insensibilité
+                     duquel je retournais vite m'unir. Ou bien en dormant
+                     j'avais rejoint sans effort un âge à jamais révolu de ma
+                     vie primitive, retrouvé telle de mes terreurs enfantines
+                     comme celle que mon grand-oncle me tirât par mes boucles et
+                     qu'avait dissipée le jour - date pour moi d'une ère
+                     nouvelle - où on les avait coupées. J'avais oublié cet
+                     événement pendant mon sommeil, j'en retrouvais le souvenir
+                     aussitôt que j'avais réussi à m'éveiller pour échapper aux
+                     mains de mon grand-oncle, mais par mesure de précaution
+                     j'entourais complètement ma tête de mon oreiller avant de
+                     retourner dans le monde des rêves.</p>
                   <p>Quelquefois, comme Ève naquit d'une côte d'Adam, une femme
                      naissait pendant mon sommeil d'une fausse position de ma
                      cuisse. Formée du plaisir que j'étais sur le point de
@@ -119,32 +122,32 @@
                      souvenir s'évanouissait, j'avais oublié la fille de mon
                      rêve.</p>
                   <p>Un homme qui dort, tient en cercle autour de lui le fil des
-                     heures, l'ordre des années et des mondes. Il les consulte
-                     d'instinct en s'éveillant et y lit en une seconde le point
-                     de la terre qu'il occupe, le temps qui s'est écoulé jusqu'à
-                     son réveil ; mais leurs rangs peuvent se mêler, se rompre.
-                     Que vers le matin après quelque insomnie, le sommeil le
-                     prenne en train de lire, dans une posture trop différente
-                     de celle où il dort habituellement, il suffit de son bras
-                     soulevé pour arrêter et faire reculer le soleil, et à la
-                     première minute de son réveil, il ne saura plus l'heure, il
-                     estimera qu'il vient à peine de se coucher. Que s'il
-                     s'assoupit dans une position encore plus déplacée et
-                     divergente, par exemple après dîner assis dans un fauteuil,
-                     alors le bouleversement sera complet dans les mondes
-                     désorbités, le fauteuil magique le fera voyager à toute
-                     vitesse dans le temps et dans l'espace, et au moment
-                     d'ouvrir les paupières, il se croira couché quelques mois
-                     plus tôt dans une autre contrée. Mais il suffisait que,
-                     dans mon lit même, mon sommeil fût profond et détendît
-                     entièrement mon esprit ; alors celui-ci lâchait le plan du
-                     lieu où je m'étais endormi, et quand je m'éveillais au
-                     milieu de la nuit, comme j'ignorais où je me trouvais, je
-                     ne savais même pas au premier instant qui j'étais ; j'avais
-                     seulement dans sa simplicité première, le sentiment de
-                     l'existence comme il peut frémir au fond d'un animal ;
-                     j'étais plus dénué que l'homme des cavernes ; mais alors le
-                     souvenir - non encore du lieu où j'étais, mais de
+                     heures, l'ordre des années et des mondes. Il<pb n="14"
+                        break="yes"/>les consulte d'instinct en s'éveillant et y
+                     lit en une seconde le point de la terre qu'il occupe, le
+                     temps qui s'est écoulé jusqu'à son réveil ; mais leurs
+                     rangs peuvent se mêler, se rompre. Que vers le matin après
+                     quelque insomnie, le sommeil le prenne en train de lire,
+                     dans une posture trop différente de celle où il dort
+                     habituellement, il suffit de son bras soulevé pour arrêter
+                     et faire reculer le soleil, et à la première minute de son
+                     réveil, il ne saura plus l'heure, il estimera qu'il vient à
+                     peine de se coucher. Que s'il s'assoupit dans une position
+                     encore plus déplacée et divergente, par exemple après dîner
+                     assis dans un fauteuil, alors le bouleversement sera
+                     complet dans les mondes désorbités, le fauteuil magique le
+                     fera voyager à toute vitesse dans le temps et dans
+                     l'espace, et au moment d'ouvrir les paupières, il se croira
+                     couché quelques mois plus tôt dans une autre contrée. Mais
+                     il suffisait que, dans mon lit même, mon sommeil fût
+                     profond et détendît entièrement mon esprit ; alors celui-ci
+                     lâchait le plan du lieu où je m'étais endormi, et quand je
+                     m'éveillais au milieu de la nuit, comme j'ignorais où je me
+                     trouvais, je ne savais même pas au premier instant qui
+                     j'étais ; j'avais seulement dans sa simplicité première, le
+                     sentiment de l'existence comme il peut frémir au fond d'un
+                     animal ; j'étais plus dénué que l'homme des cavernes ; mais
+                     alors le souvenir - non encore du lieu où j'étais, mais de
                      quelques-uns de ceux que j'avais habités et où j'aurais pu
                      être - venait à moi comme un secours d'en haut pour me
                      tirer du néant d'où je n'aurais pu sortir tout seul ; je

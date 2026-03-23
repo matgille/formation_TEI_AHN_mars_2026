@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_all.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_all.rng" type="application/xml"
+	schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+    <teiHeader>
+        <fileDesc>
+            <titleStmt>
+                <title>Le dormeur du val, encodage XML-TEI</title>
+                <respStmt>
+                    <resp>écrit par</resp>
+                    <name>Arthur Rimbaud</name>
+                </respStmt>
+                <respStmt>
+                    <resp>encodé par</resp>
+                    <name>Matthias Gille Levenson</name>
+                </respStmt>
+            </titleStmt>
+            <publicationStmt>
+                <publisher>Non publié, document d'exercice.</publisher>
+                <availability>
+                    <licence>Disponible sous licence CC-BY-SA 3.0</licence>
+                </availability>
+            </publicationStmt>
+            <sourceDesc>
+                <p>Structuration du sonnet <title>Le Dormeur du Val</title>
+                        d'<name>Arthur Rimbaud</name> disponible sur <ref
+                        target="https://fr.wikisource.org/wiki/Reliquaire,_po%C3%A9sies/Le_Dormeur_du_Val"
+                        >wikisource</ref>. Originellement publié dans <bibl>
+                        <title level="a">Reliquaire, Poésies</title>, édité par
+                            <editor>L. Genonceaux</editor>,
+                        <date>1891</date>.</bibl></p>
+            </sourceDesc>
+        </fileDesc>
+    </teiHeader>
+    <text>
+        <body>
+            <p>Texte à encoder.</p>
+        </body>
+    </text>
+</TEI>
