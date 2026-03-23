@@ -16,6 +16,37 @@
 \usepackage{minted}
 \usetheme{default}
 \usecolortheme{default}
+\definecolor{mygrey}{RGB}{235,235,235}
+\definecolor{bordeaux}{RGB}{163,0,0}
+\setbeamercolor{subsubsection in head/foot}{
+    fg=bordeaux,    % Couleur du texte
+    bg=mygrey  % Couleur de fond (exemple : bleu foncé)
+}
+% Personnalisation du header : section courante (gauche) et sous-section > sous-sous-section (droite)
+\makeatletter
+\setbeamertemplate{headline}{%
+  \leavevmode%
+  \hbox{%
+    % Tuile de gauche : section courante uniquement
+    \begin{beamercolorbox}[wd=0.5\paperwidth,ht=2.5ex,dp=1.125ex,center]{section in head/foot}%
+      \insertsectionhead
+    \end{beamercolorbox}%
+    % Tuile de droite : sous-section > sous-sous-section
+    \begin{beamercolorbox}[wd=0.25\paperwidth,ht=2.5ex,dp=1.125ex,center]{subsection in head/foot}%
+      \insertsubsectionhead%
+      %\ifx\insertsubsubsectionhead\empty\else\ \textgreater\ \insertsubsubsectionhead\fi
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[wd=0.25\paperwidth,ht=2.5ex,dp=1.125ex,center]{subsubsection in head/foot}%
+      \insertsubsubsectionhead%
+      %\ifx\insertsubsubsectionhead\empty\else\ \textgreater\ \insertsubsubsectionhead\fi
+    \end{beamercolorbox}%
+  }%
+}
+\makeatother
+
+% Réduire la taille de la police pour éviter le débordement
+\setbeamerfont{subsection in head/foot}{size=\scriptsize}
+\setbeamerfont{subsubsection in head/foot}{size=\scriptsize}
 
 
 % Définition des couleurs
@@ -69,7 +100,8 @@
     \tableofcontents[
       currentsection,       % Met en évidence la section courante
       sectionstyle=show/shaded, % Sections : courante en évidence, autres en grisé
-      subsectionstyle=hide  % Cache toutes les sous-sections
+      subsectionstyle=hide,  % Cache toutes les sous-sections
+      subsubsectionstyle=hide  % Cache toutes les sous-sections
     ]
   \end{frame}
 }
@@ -84,6 +116,20 @@
       hideothersubsections, % Cache les sous-sections des autres sections
       sectionstyle=show/hide, % Cache les autres sections
       subsectionstyle=show/shaded/hide % Sous-section courante en évidence, les autres en grisé
+    ]
+  \end{frame}
+}
+
+
+\AtBeginSubsubsection[]
+{
+  \begin{frame}
+    \tableofcontents[
+     currentsection, % Affiche uniquement la section courante
+      hideothersubsections, % Cache les sous-sections des autres sections
+      sectionstyle=show/hide, % Cache les autres sections
+      subsectionstyle=show/shaded/hide, % Sous-section courante en évidence, les autres en grisé
+      subsubsectionstyle=show/shaded/hide, % Sous-section courante en évidence, les autres en grisé
     ]
   \end{frame}
 }
@@ -242,42 +288,224 @@ La page contient:
 
 \subsection{Chapitres fondamentaux}
 
+\subsubsection{Métadonnées}
+
 \begin{frame}{Les métadonnées et le \texttt{teiHeader}}
 \begin{itemize}
 \item Un document XML-TEI est composé au minimum de deux parties: les métadonnées et l'objet décrit.
 \item Les métadonnées, qui décrivent le document en lui-même (auteur.e, source, régime de publication, année, etc), sont renseignées dans la première partie, le \texttt{teiHeader}
+\item Nous allons voir les éléments \texttt{fileDesc} et \texttt{encodingDesc}, mais il en existe d'autres
 \end{itemize}
 \end{frame}
+
+
+\begin{frame}{\texttt{fileDesc}}
+\begin{itemize}
+\item Le \texttt{fileDesc} contient toutes les informations sur le fichier encodé: son titre, 
+son régime de distribution (licence), la source, etc. 
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}[containsverbatim]{\texttt{fileDesc} > \texttt{titleStmt}}
+\begin{itemize}
+\item Le \texttt{titleStmt} contient l'information sur le titre \textbf{du document XML}, qui peut différer du titre de la ou des sources utilisées.
+\end{itemize}
+\begin{minted}[breaklines,numbersep=2mm]{xml}
+<fileDesc>
+    <titleStmt>
+      <title>The shortest possible TEI document</title>
+    </titleStmt>
+    ...
+</fileDesc>
+\end{minted}
+\end{frame}
+
+\begin{frame}[containsverbatim]{\texttt{fileDesc} > \texttt{titleStmt}}
+\begin{itemize}
+\item Le \texttt{titleStmt} contient également toute information sur l'origine et la création du document TEI décrit: autorité, traduction, édition, financements, responsabilité intellectuelle (en cas de multiples auteurs).
+\item Éléments importants: \texttt{respStmt} \texttt{resp}, \texttt{name}, \texttt{author}, \texttt{editor}, etc 
+\end{itemize}
+\begin{minted}[breaklines,numbersep=2mm]{xml}
+<fileDesc>
+    <titleStmt>
+      <title>The shortest possible TEI document</title>
+    </titleStmt>
+    <respStmt>
+      <resp>created by</resp>
+      <name>Ann O'Nyme</name>
+    </respStmt>
+</fileDesc>
+\end{minted}
+\end{frame}
+
+\begin{frame}[containsverbatim]{\texttt{fileDesc} > \texttt{publicationStmt}}
+\begin{itemize}
+\item Le \texttt{publicationStmt} donne des informations sur le contexte de publication et de diffusion du document (propriété intellectuelle essentiellement)
+\end{itemize}
+\begin{minted}[breaklines,numbersep=2mm]{xml}
+<publicationStmt>
+    <distributor>ATILF (Analyse et Traitement Informatique de la Langue Française)</distributor>
+    <idno type="FRANTEXT">L434</idno>
+    <address>
+        <addrLine>44, avenue de la Libération</addrLine>
+        ...
+        <addrLine>FRANCE</addrLine>
+    </address>
+    <availability status="free">
+        <p>Dans un cadre de recherche ou d'enseignement</p>
+    </availability>
+</publicationStmt>
+\end{minted}
+\end{frame}
+
+
+\begin{frame}[containsverbatim]{\texttt{fileDesc} > \texttt{sourceDesc}}
+\begin{itemize}
+\item L'élément \texttt{sourceDesc} permet de décrire la source utilisée pour l'encodage (manuscrit, audio, livre imprimé). 
+\end{itemize}
+\begin{minted}[breaklines,numbersep=2mm]{xml}
+<sourceDesc>
+    <bibl>
+        The first folio of Shakespeare, prepared by Charlton Hinman (The Norton Facsimile, 1968)
+    </bibl>
+</sourceDesc>
+\end{minted}
+\end{frame}
+
+
+
+\begin{frame}[containsverbatim]{\texttt{encodingDesc}}
+\begin{itemize}
+\item L'\texttt{encodingDesc} contient des informations sur la façon d'encoder le document en cours. Cette description sera réalisée en language naturel, au sein d'un \texttt{editorialDecl} puis d'un paragraphe.
+\end{itemize}
+\begin{minted}[breaklines,numbersep=2mm]{xml}
+<encodingDesc>
+    <editorialDecl>
+        <p>
+            Basic encoding, capturing lexical information only. All hyphenation, punctuation, and variant spellings normalized. No formatting or layout information preserved.
+        </p>
+    </editorialDecl>
+</encodingDesc>
+\end{minted}
+\end{frame}
+
+
+\begin{frame}[containsverbatim]{\texttt{encodingDesc} > \texttt{projectDesc}}
+\begin{itemize}
+\item L'\texttt{encodingDesc} peut contenir également un élément \texttt{projectDesc}. Cet élément vient décrire le cadre de l'encodage du fichier.
+\end{itemize}
+\begin{minted}[breaklines,numbersep=2mm]{xml}
+<encodingDesc>
+    <projectDesc>
+        <p>
+            Ce document contient l'ensemble des fichiers XML de ma thèse de doctorat, réalisé sous la direction de Carlos Heusch (Ens de Lyon) et de Jesús R. Velasco (Yale University), soutenue le 8 septembre 2023.
+        </p>
+    </projectDesc>
+<encodingDesc>
+\end{minted}
+\end{frame}
+
+
+\begin{frame}[containsverbatim]{\texttt{encodingDesc} > \texttt{projectDesc}}
+\begin{itemize}
+\item On peut combiner les deux:
+\end{itemize}
+\begin{minted}[breaklines,numbersep=2mm]{xml}
+<encodingDesc>
+    <projectDesc>
+        <p>Description du projet</p>
+    </projectDesc>
+    <editorialDecl>
+        <p>Description des normes d'encodage et de transcription</p>
+    </editorialDecl>
+<encodingDesc>
+\end{minted}
+\end{frame}
+
+
+\begin{frame}{Exercice: encoder les metadonnées du \textit{Dormeur du val}}
+\begin{itemize}
+\item Proposez un encodage minimal des metadonnées du poème de Rimbaud. Vous êtes responsable
+de l'édition du poème et de son encodage. Proposez une licence de diffusion libre (Creative Commons par exemple) de votre édition.
+\end{itemize}
+\end{frame}
+
+
+
+\subsubsection{Structures textuelles}
 
 \begin{frame}{Structure textuelle}
 \begin{itemize}
 \item Les divisions sont marquées par \texttt{div} ou \texttt{div1, div2, div3}. Le choix entre les deux est obligatoire !
 \item Les paragraphes de la prose, par \texttt{p}
-\item Les sections moins claires sémantiquement peuvent être indiquées par \texttt{ab} (anonymous block)
+\item Les sections moins marquées sémantiquement peuvent être indiquées par \texttt{ab} (anonymous block)
 \end{itemize}
 \end{frame}
 
+
+\begin{frame}{Structure textuelle: attributs}
+\begin{itemize}
+\item Dans le cas du choix des éléments \texttt{div} no numérotés, il est important de préciser le niveau de structure à l'aide d'attributs
+\item On utilisera d'une part l'attribut \texttt{@type} pour la classification du niveau structurel
+\item On utilisera de l'autre l'attribut \texttt{@n} pour la numéro de la structure courante
+\item Il est parfois utile de créer des identifiants uniques pour chaque unité structurelle, afin de pouvoir la retrouver facilement ensuite. On utilise alors l'attribut xml \texttt{@xml:id}
+\item Attention, \textbf{@xml:id n'accepte que des valeurs uniques dans un même document}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Exercice}
+\begin{itemize}
+\item Dans un nouveau document XML, encodez la structure minimale de l'incipit de la \textit{Recherche}, comme si vous deviez éditer le texte intégral.
+\end{itemize}
+\end{frame}
+
+\subsubsection{Représentation des sources primaires}
 \begin{frame}{Représentation des sources primaires}
 \begin{itemize}
 \item
 \end{itemize}
 \end{frame}
 
-\begin{frame}{Entités nommées}
-\begin{itemize}
-\item
-\end{itemize}
-\end{frame}
-
+\subsubsection{Description de manuscrits}
 \begin{frame}{Description de manuscrits}
 \begin{itemize}
-\item
+\item Ce module peut ête confondu avec le module précédent, mais il concerne la description physique du manuscrit et non pas la description de la page. 
+\item On trouvera donc ses éléments essentiellement dans le \texttt{teiHeader}
 \end{itemize}
 \end{frame}
 
+
+\subsubsection{Entités nommées}
+\begin{frame}{Entités nommées}
+\begin{itemize}
+\item Une entité nommée est une chaîne de caractères qui décrit un référent humain, géographique ou institutionnel (personne, lieu, entreprise, organisation, etc). 
+\item La TEI propose un ensemble d'éléments permettant d'identifier les entités nommées dans le texte, et de les désambiguiser (dans le teiHeader).
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}{Identifier les entités nommées}
+\begin{itemize}
+\item 
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Désambiguiser les entités nommées}
+\begin{itemize}
+\item On a besoin d'indiquer le référent de chaque entité, ce que l'on peut faire en plusieurs points de l'édition
+\item La plus commune est dans le \texttt{teiHeader}
+\item Il s'agit de proposer une liste de personnes (\texttt{listPerson}), ou de lieux (\texttt{listPlace})
+\item Ces deux éléments seront présents dans l'élément \texttt{sourceDesc}
+\end{itemize}
+\end{frame}
+
+
+\subsubsection{Apparats critiques}
 \begin{frame}{Apparats critiques}
 \begin{itemize}
-\item
+\item Il existe également un module spécifique dédié aux apparats critiques: le module textcrit. Il permet d'encoder une édition critique selon plusieurs écoles philologiques (lachmannisme, néo-lachmannisme, bédiériste, \textit{New Philology)}. 
+\item Lien vers le chapitre des \textit{Guidelines}: \href{https://tei-c.org/release/doc/tei-p5-doc/en/html/TC.html}{https://tei-c.org/release/doc/tei-p5-doc/en/html/TC.html}
 \end{itemize}
 \end{frame}
 
@@ -286,15 +514,68 @@ La page contient:
 
 
 \section{Application: encoder des vers et du théâtre}
+
 \subsection{Le vers}
+
 \begin{frame}[containsverbatim]{Les formes versifiées}
 \begin{itemize}
 \item Le module de la TEI est: \href{Verse}{https://tei-c.org/release/doc/tei-p5-doc/en/html/VE.html}
-\item les éléments fondamentaux sont le vers (\texttt{l} pour \textit{line}), le groupe de vers (\texttt{lg} pour \textit{LineGroup})
+\item les éléments fondamentaux sont le vers (\texttt{l} pour \textit{line}), 
+\item le groupe de vers (\texttt{lg} pour \textit{LineGroup})
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}[containsverbatim]{Les formes versifiées}
+\begin{itemize}
 \item Vous pouvez représenter une unité textuelle (poème) par comme un \texttt{lg} ou plus classiquement une division. 
 \item L'hémistiche ou le pied peuvent être indiqués à l'aide de l'élément \texttt{seg} qui devra être précisé par un attribut \texttt{type}
-\item Vous pouvez décrire la rime avec l'attribut \texttt{rhyme}, et la structure métrique avec \texttt{met}:
+\end{itemize}
+\begin{minted}[breaklines,numbersep=2mm]{xml}
+<lg type="chant" n="1">
+    <lg>
+        <l>Arma virumque cano, Troiae qui primus ab oris</l>
+        <l>italiam, fato profugus, Laviniaque vēnit</l>
+        <l>litora, multum ille et terris iactatus et alto</l>
+        <l>vi superum saevae memorem Iunonis ob iram;</l>
+        <l>multa quoque et bello passus, dum conderet urbem,</l>
+        <l>inferretque deos Latio, genus unde Latinum,</l>
+        <l>Albanique patrēs, atque altae moenia Romae.</l>
+    </lg>
+</lg>
+\end{minted}
+\end{frame}
 
+\begin{frame}[containsverbatim]{Les formes versifiées}
+\begin{itemize}
+\item Vous pouvez décrire la rime avec l'attribut \texttt{rhyme}:
+
+
+\begin{minted}[breaklines,numbersep=2mm]{xml}
+<lg type="soneto">
+    <lg rhyme="ABAB" type="cuarteto" n="1">
+        <l>Tengo miedo a perder la maravilla</l>
+        <l>de tus ojos de estatua y el acento</l>
+        <l>que me pone de noche en la mejilla</l>
+        <l>la solitaria rosa de tu aliento.</l>
+    </lg>
+    ...
+</lg>
+\end{minted}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[containsverbatim]{Les formes versifiées}
+\begin{itemize}
+\item Vous pouvez décrire la structure métrique avec \texttt{met}:
+
+
+\begin{minted}[breaklines,numbersep=2mm]{xml}
+<l met="+--|+--|++|++|+--|++">
+Arma virumque cano Troiae qui primus ab oris
+</l>
+\end{minted}
+ou encore 
 \begin{minted}[breaklines,numbersep=2mm]{xml}
 <l>
  <seg type="foot" met="+--">Arma vi</seg>
@@ -309,6 +590,7 @@ La page contient:
 \end{frame}
 
 
+\subsubsection{Exercice 1}
 \begin{frame}{Encoder un sonnet}
 \begin{itemize}
 \item Encodez le sonnet 
@@ -319,17 +601,55 @@ La page contient:
 \end{itemize}
 \end{frame}
 
-
 \subsection{Le théâtre}
-\begin{frame}{Le théâtre}
+
+\begin{frame}[containsverbatim]{Le théâtre}
 \begin{itemize}
 \item Le module de la TEI est: \href{Performance texts}{https://tei-c.org/release/doc/tei-p5-doc/en/html/DR.html}
 \item les éléments fondamentaux sont la division structurelle (similaire à \textit{supra}), les interventions des personnages (\texttt{sp})
+\item L'indication de parole est réalisée à l'aide de \texttt{speaker}.
+\end{itemize}
+\begin{minted}[breaklines,numbersep=2mm]{xml}
+<div type="scene" n="1">
+    <head>Scène Première</head>
+    <stage>Philinte, Alceste</stage>
+    <sp>
+        <speaker who="#philinte">Philinte</speaker>
+        <l n="1">Qu'est-ce donc ? qu'avez-vous ?</l>
+    </sp>
+    <sp who="#alceste">
+        <speaker>Alceste</speaker>
+        <stage>assis</stage>
+        <l n="1">Laissez-moi, je vous prie.</l>
+    </sp>
+</div>
+\end{minted}
+\end{frame}
+
+
+
+\begin{frame}[containsverbatim]{Le théâtre}
+\begin{itemize}
 \item Les didascalies sont encodées avec \texttt{stage}. Les mouvements des personnages, avec \texttt{move}
 \item La liste des personnages se décrit à l'aide de \texttt{castList} et de \texttt{castItem}, le lieu de l'action avec \texttt{set}.
 \end{itemize}
+\begin{minted}[breaklines,numbersep=2mm]{xml}
+<body>
+     <head>Le misanthrophe</head>
+     <!-- AJOUT IDENTIFIANTS DE PERSONNAGES -->
+     <castList>
+        <castItem xml:id="philinte">Philinte</castItem>
+        <castItem xml:id="alceste">Alceste</castItem>
+     </castList>
+    <div xml:id="I" type="act" n="1">
+        <head>Acte Premier</head>
+        ...
+    </div>
+</body>
+\end{minted}
 \end{frame}
 
+\subsubsection{Exercice 2}
 \begin{frame}{Encoder un fragment d'\oe uvre dramatique}
 \begin{itemize}
 \item Encodez la scène finale de l'\textit{Avare} (\texttt{session\_2\_la\_tei/exercices/avare\_a5\_sc6.txt})

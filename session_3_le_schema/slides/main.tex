@@ -16,6 +16,37 @@
 \usepackage{minted}
 \usetheme{default}
 \usecolortheme{default}
+\definecolor{mygrey}{RGB}{235,235,235}
+\definecolor{bordeaux}{RGB}{163,0,0}
+\setbeamercolor{subsubsection in head/foot}{
+    fg=bordeaux,    % Couleur du texte
+    bg=mygrey  % Couleur de fond (exemple : bleu foncé)
+}
+% Personnalisation du header : section courante (gauche) et sous-section > sous-sous-section (droite)
+\makeatletter
+\setbeamertemplate{headline}{%
+  \leavevmode%
+  \hbox{%
+    % Tuile de gauche : section courante uniquement
+    \begin{beamercolorbox}[wd=0.5\paperwidth,ht=2.5ex,dp=1.125ex,center]{section in head/foot}%
+      \insertsectionhead
+    \end{beamercolorbox}%
+    % Tuile de droite : sous-section > sous-sous-section
+    \begin{beamercolorbox}[wd=0.25\paperwidth,ht=2.5ex,dp=1.125ex,center]{subsection in head/foot}%
+      \insertsubsectionhead%
+      %\ifx\insertsubsubsectionhead\empty\else\ \textgreater\ \insertsubsubsectionhead\fi
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[wd=0.25\paperwidth,ht=2.5ex,dp=1.125ex,center]{subsubsection in head/foot}%
+      \insertsubsubsectionhead%
+      %\ifx\insertsubsubsectionhead\empty\else\ \textgreater\ \insertsubsubsectionhead\fi
+    \end{beamercolorbox}%
+  }%
+}
+\makeatother
+
+% Réduire la taille de la police pour éviter le débordement
+\setbeamerfont{subsection in head/foot}{size=\scriptsize}
+\setbeamerfont{subsubsection in head/foot}{size=\scriptsize}
 
 
 % Définition des couleurs
@@ -28,8 +59,8 @@
 \setminted{
   bgcolor=schBg,
   frame=single,
-  framesep=2mm,
-  linenos=true,
+  framesep=3mm,
+  linenos=False,
   breaklines=true,
   fontsize=\small,
 }
@@ -69,7 +100,8 @@
     \tableofcontents[
       currentsection,       % Met en évidence la section courante
       sectionstyle=show/shaded, % Sections : courante en évidence, autres en grisé
-      subsectionstyle=hide  % Cache toutes les sous-sections
+      subsectionstyle=hide,  % Cache toutes les sous-sections
+      subsubsectionstyle=hide  % Cache toutes les sous-sections
     ]
   \end{frame}
 }
@@ -84,6 +116,20 @@
       hideothersubsections, % Cache les sous-sections des autres sections
       sectionstyle=show/hide, % Cache les autres sections
       subsectionstyle=show/shaded/hide % Sous-section courante en évidence, les autres en grisé
+    ]
+  \end{frame}
+}
+
+
+\AtBeginSubsubsection[]
+{
+  \begin{frame}
+    \tableofcontents[
+     currentsection, % Affiche uniquement la section courante
+      hideothersubsections, % Cache les sous-sections des autres sections
+      sectionstyle=show/hide, % Cache les autres sections
+      subsectionstyle=show/shaded/hide, % Sous-section courante en évidence, les autres en grisé
+      subsubsectionstyle=show/shaded/hide, % Sous-section courante en évidence, les autres en grisé
     ]
   \end{frame}
 }
@@ -112,6 +158,7 @@ doi=true,backend=biber,maxbibnames=9, maxcitenames=4]{biblatex}
 \usetikzlibrary{shapes,calc,matrix,decorations.markings,decorations.pathreplacing,positioning, intersections,backgrounds}
 \tikzstyle{bag} = [align=center]
 
+
 \date[24 mars 2026]{24 mars 2026}
 \author[Matthias \textsc{Gille Levenson}]{\\~\\ Matthias \textsc{Gille Levenson}\\   {\scriptsize Université Versailles Saint Quentin (UVSQ) \& École Normale Supérieure de Lyon, France}\\ {\tiny matthias [dot] gille [-] levenson [at] ens-lyon [dot] fr}\vspace{-1cm}}
 \title[Les schémas]{Session 3: Les schémas\\ {\small Atelier Humanités Numériques \\ Lyon}}
@@ -124,12 +171,20 @@ doi=true,backend=biber,maxbibnames=9, maxcitenames=4]{biblatex}
 
 
 \section{Les schémas}
+\subsection{Conformité et validité}
+\begin{frame}{Conformité n'est pas validité}
+\begin{itemize}
+\item Un document conforme n'est pas forcément valide:
+\item Un document XML peut être bien formé, mais ne pas respecter les règles d'un \textbf{schéma}
+\end{itemize}
+\end{frame}
+
 \subsection{Avantages de l'utilisation des schémas}
 \begin{frame}{À quoi sert un schéma ?}
 \begin{itemize}
 \item Un schéma vérifie si les données sont correctement formatées.
 \item Un schéma définit des règles concernant ce qui est autorisé et ce qui ne l'est pas dans une structure de données XML
-\item Appliqué à un codage de texte, un schéma est un modèle du \enquote{texte}, c'est-à-dire une \textbf{représentation formelle} du texte.
+\item Appliqué à un codage de texte, un schéma est un \textbf{modèle} du \enquote{texte}, c'est-à-dire une \textbf{représentation formelle} du texte.
 \item D'un point de vue pratique, cela permet d'harmoniser votre encodage et constitue une \textbf{étape importante vers l'interopérabilité}
 \end{itemize}
 \end{frame}
@@ -443,7 +498,7 @@ With ROMA, you can easily design your own ODD:
 \begin{figure}
  \includegraphics[width=.65\textwidth]{img/my_first_ODD.png}
 \end{figure}
-Je trouve cette spécification trop générale. Je supprimerais certains modules. Souhaitez-vous décrire des chiffres ? Vous intéressez-vous aux entités nommées ?
+%Je trouve cette spécification trop générale. Je supprimerais certains modules. Souhaitez-vous décrire des chiffres ? Vous intéressez-vous aux entités nommées ?
 \end{frame}
 
 
