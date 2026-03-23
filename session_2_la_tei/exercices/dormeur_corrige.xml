@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_all.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_all.rng" type="application/xml"
+	schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+   <teiHeader>
+      <fileDesc>
+         <titleStmt>
+            <title>Le dormeur du val: encodage XML-TEI</title>
+         </titleStmt>
+         <publicationStmt>
+            <p>Non publié, à vocation didactique uniquement</p>
+         </publicationStmt>
+         <sourceDesc>
+            <p>À partir de l'édition princeps</p>
+         </sourceDesc>
+      </fileDesc>
+   </teiHeader>
+   <text>
+      <body>
+         <div type="poeme">
+            <head>Le dormeur du val</head>
+            <lg type="sonnet">
+               <lg type="quatrain">
+                  <l>C’est un trou de verdure où chante une rivière</l>
+                  <l>Accrochant follement aux herbes des haillons</l>
+                  <l>D’argent ; où le soleil, de la montagne fière,</l>
+                  <l> Luit : c’est un petit val qui mousse de rayons.</l>
+               </lg>
+               <lg type="quatrain">
+                  <l>Un soldat jeune, bouche ouverte, tête nue,</l>
+                  <l>Et la nuque baignant dans le frais cresson bleu,</l>
+                  <l>Dort ; il est étendu dans l’herbe, sous la nue,</l>
+                  <l>Pâle dans son lit vert où la lumière pleut.</l>
+               </lg>
+               <lg type="tercet">
+                  <l>Les pieds dans les glaïeuls, il dort. Souriant comme</l>
+                  <l>Sourirait un enfant malade, il fait un somme :</l>
+                  <l>Nature, berce-le chaudement : il a froid.</l>
+               </lg>
+               <lg type="tercet">
+                  <l>Les parfums ne font pas frissonner sa narine ;</l>
+                  <l>Il dort dans le soleil, la main sur sa poitrine</l>
+                  <l>Tranquille. Il a deux trous rouges au côté droit.</l>
+               </lg>
+            </lg>
+         </div>
+      </body>
+   </text>
+</TEI>

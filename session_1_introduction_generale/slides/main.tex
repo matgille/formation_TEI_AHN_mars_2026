@@ -11,6 +11,7 @@
 \usepackage{makecell}
 \usepackage{tabularx}
 \usepackage{csquotes}
+\usepackage{subcaption}
 \usepackage{adjustbox}
 \setbeamertemplate{caption}{\raggedright\insertcaption\par}
 \usepackage{minted}
@@ -69,7 +70,7 @@
 \usepackage{pgfplots}
 \usepackage{tikz}
 \usetikzlibrary{shapes,calc,matrix,decorations.markings,decorations.pathreplacing,positioning, intersections,backgrounds,through,hobby}
-\usepackage[english]{babel}
+\usepackage[french]{babel}
 %\AtBeginSection[]
 %{\begin{frame}
 % \frametitle{}  
@@ -221,6 +222,7 @@ Quatre objets principaux (appelés \textit{n\oe uds}) :
 \begin{frame}{Conformité. Composants principaux du XML}
 \begin{itemize}
 \item Il existe peu de règles en XML mais elles sont fondamentales:
+\begin{enumerate}
 \item Du point de vue de la \textit{modélisation} (représentation abstraite de l'objet XML)
 \begin{itemize}
 \item Règle d'enchâssement des éléments
@@ -228,24 +230,26 @@ Quatre objets principaux (appelés \textit{n\oe uds}) :
 \end{itemize}
 \item Du point de vue de la \textit{sérialisation} (expression de l'objet XML à l'aide d'une chaîne de caractères)
 \begin{itemize}
-\item Règles d'expression d'un élément
+\item Règles d'expression d'un élément: \texttt{<element/>}, \texttt{<element>contenu</element>}
 \item Règle d'expression des attributs: espaces et guillemets obligatoires
 \end{itemize}
+\end{enumerate}
+\item \textbf{En XML} ($\neq$ TEI), il n'y a pas de règle quant au nom des éléments (d'où \enquote{eXtensible})
 \end{itemize}
 \end{frame}
 
 
-\begin{frame}{Conformité. Composants principaux du XML}
-\begin{center}
-\begin{figure}
-\includegraphics[height=.5\textheight]{img/element_attribute_text.png}
-\caption{Ce document XML est conforme (mais la TEI est \textbf{invalide})}
-\end{figure}
-\end{center}
-%\begin{itemize}
-%\item There is little assumption about what can be  in XML (hence eXtensible).
-%\end{itemize}
-\end{frame}
+%\begin{frame}{Conformité. Composants principaux du XML}
+%\begin{center}
+%\begin{figure}
+%\includegraphics[height=.5\textheight]{img/element_attribute_text.png}
+%\caption{Ce document XML est conforme (mais la TEI est \textbf{invalide})}
+%\end{figure}
+%\end{center}
+%%\begin{itemize}
+%%\item There is little assumption about what can be  in XML (hence eXtensible).
+%%\end{itemize}
+%\end{frame}
 
 
 
@@ -314,7 +318,7 @@ Quatre objets principaux (appelés \textit{n\oe uds}) :
 \end{frame}
 
 
-\subsection{Application. Corriger un XML mal structuré}
+\subsubsection{Corriger un XML mal structuré}
 
 \begin{frame}{Oxygen}
 \begin{itemize}
@@ -412,33 +416,51 @@ La TEI est le standard de fait pour le partage des données actuellement
 \end{itemize}
 \end{frame}
 
+\begin{frame}[containsverbatim]{La critique génétique}
+\begin{center}
+\begin{figure}
+\includegraphics[width=.7\textwidth, trim={0 12cm 0 0}, clip]{../../img/proust.png}
+\caption{L'édition des brouillons de Proust \parencite{andreCodageTEIBrouillons2013}}
+\end{figure}
+\end{center}
+\end{frame}
 
 \begin{frame}[containsverbatim]{L'édition critique}
-% Image TEI castillan / latin
+\begin{center}
+\begin{figure}
+\includegraphics[width=.7\textwidth]{../../img/resultats.png}
+\caption{Un exemple d'édition critique numérique \parencite{gillelevensonRegimientoPrincipesSa2023}}
+\end{figure}
+\end{center}
 \end{frame}
 
 
 
-\begin{frame}[containsverbatim]{La critique génétique}
-% Image TEI castillan / latin
-\end{frame}
 
 % https://stackoverflow.com/a/72696959
 \begin{frame}[containsverbatim]{La collation automatisée}
-\begin{minted}[breaklines, ,linenos,numbersep=3mm]{python}
+\begin{figure}
+\begin{minted}[breaklines,numbersep=2mm]{python}
 for rdg in apps:
     if rdg.is_empty() and following_rdg.is_empty():
             create_node(witEnd)
 \end{minted}
+\caption{Pseudo-code décrivant l'insertion automatisée de balises de lacunes textuelles}
+\end{figure}
 \end{frame}
 
-\begin{frame}[containsverbatim]{L'alignement multilingue de sources vernaculaires médiévales}
-% Image TEI castillan / latin
-\end{frame}
-
-
-\begin{frame}[containsverbatim]{L'alignement multilingue de sources vernaculaires médiévales}
-% Table de concordance multilingue
+\begin{frame}{L'alignement multilingue de sources vernaculaires médiévales}
+\begin{figure}[ht!]
+\centering
+\begin{subfigure}{.6\textwidth}
+  \centering
+\includegraphics[width=.9\textwidth, trim={0cm 0cm 0 0cm}]{../../img/xml_lat.png}
+\end{subfigure}%
+\begin{subfigure}{.4\textwidth}
+  \centering
+\includegraphics[width=.8\textwidth]{../../img/xml_spo.png}
+\end{subfigure}
+\end{figure}
 \end{frame}
 
 \section{Exemples utilisés au long de la formation}
